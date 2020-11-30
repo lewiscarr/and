@@ -1,6 +1,6 @@
 webpackJsonp([105],{
 
-/***/ 2034:
+/***/ 2042:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,8 +11,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(1002);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__discussion__ = __webpack_require__(2190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(1007);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__discussion__ = __webpack_require__(2198);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,7 @@ var AddonModForumDiscussionPageModule = /** @class */ (function () {
     function AddonModForumDiscussionPageModule() {
     }
     AddonModForumDiscussionPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__discussion__["a" /* AddonModForumDiscussionPage */],
             ],
@@ -63,30 +63,30 @@ var AddonModForumDiscussionPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2190:
+/***/ 2198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModForumDiscussionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_network__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_network__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_events__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_utils_utils__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_fileuploader_providers_fileuploader__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_fileuploader_providers_fileuploader__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_split_view_split_view__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_rating_providers_rating__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_rating_providers_offline__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_rating_providers_sync__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_forum__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_rating_providers_rating__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_rating_providers_offline__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_rating_providers_sync__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_forum__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_offline__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_helper__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_sync__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_sync__ = __webpack_require__(197);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -218,6 +218,7 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
         this.discussionId = this.discussion ? this.discussion.discussion : navParams.get('discussionId');
         this.trackPosts = navParams.get('trackPosts');
         this.postId = navParams.get('postId');
+        this.parent = navParams.get('parent');
         this.isOnline = this.appProvider.isOnline();
         this.onlineObserver = network.onchange().subscribe(function () {
             // Execute the callback in the Angular zone, so change detection doesn't stop working.
@@ -232,35 +233,76 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
      * View loaded.
      */
     AddonModForumDiscussionPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.sitesProvider.getCurrentSite().getLocalSiteConfig('AddonModForumDiscussionSort').catch(function () {
-            _this.userProvider.getUserPreference('forum_displaymode').catch(function () {
-                // Ignore errors.
-            }).then(function (value) {
-                var sortValue = value && parseInt(value, 10);
-                switch (sortValue) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var _a, scrollTo;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        if (!this.parent) return [3 /*break*/, 1];
+                        this.sort = 'nested'; // Force nested order.
+                        return [3 /*break*/, 3];
                     case 1:
-                        _this.sort = 'flat-oldest';
-                        break;
-                    case -1:
-                        _this.sort = 'flat-newest';
-                        break;
-                    case 3:
-                        _this.sort = 'nested';
-                        break;
-                    case 2: // Threaded not implemented.
-                    default:
+                        _a = this;
+                        return [4 /*yield*/, this.getUserSort()];
+                    case 2:
+                        _a.sort = _b.sent();
+                        _b.label = 3;
+                    case 3: return [4 /*yield*/, this.fetchPosts(true, false, true)];
+                    case 4:
+                        _b.sent();
+                        scrollTo = this.postId || this.parent;
+                        if (scrollTo) {
+                            // Scroll to the post.
+                            setTimeout(function () {
+                                _this.domUtils.scrollToElementBySelector(_this.content, '#addon-mod_forum-post-' + scrollTo);
+                            });
+                        }
+                        return [2 /*return*/];
                 }
             });
-        }).then(function (value) {
-            _this.sort = value;
-        }).finally(function () {
-            _this.fetchPosts(true, false, true).then(function () {
-                if (_this.postId) {
-                    // Scroll to the post.
-                    setTimeout(function () {
-                        _this.domUtils.scrollToElementBySelector(_this.content, '#addon-mod_forum-post-' + _this.postId);
-                    });
+        });
+    };
+    /**
+     * Get sort type configured by the current user.
+     *
+     * @return Promise resolved with the sort type.
+     */
+    AddonModForumDiscussionPage.prototype.getUserSort = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var value, error_1, value, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 7]);
+                        return [4 /*yield*/, this.sitesProvider.getCurrentSite().getLocalSiteConfig('AddonModForumDiscussionSort')];
+                    case 1:
+                        value = _a.sent();
+                        return [2 /*return*/, value];
+                    case 2:
+                        error_1 = _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        return [4 /*yield*/, this.userProvider.getUserPreference('forum_displaymode')];
+                    case 4:
+                        value = _a.sent();
+                        switch (Number(value)) {
+                            case 1:
+                                return [2 /*return*/, 'flat-oldest'];
+                            case -1:
+                                return [2 /*return*/, 'flat-newest'];
+                            case 3:
+                                return [2 /*return*/, 'nested'];
+                            case 2: // Threaded not implemented.
+                            default:
+                        }
+                        return [3 /*break*/, 6];
+                    case 5:
+                        error_2 = _a.sent();
+                        return [3 /*break*/, 6];
+                    case 6: return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/, 'flat-oldest'];
                 }
             });
         });
@@ -270,6 +312,10 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
      */
     AddonModForumDiscussionPage.prototype.ionViewDidEnter = function () {
         var _this = this;
+        if (this.syncObserver) {
+            // Already setup.
+            return;
+        }
         // Refresh data if this discussion is synchronized automatically.
         this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_18__providers_sync__["a" /* AddonModForumSyncProvider */].AUTO_SYNCED, function (data) {
             if (data.forumId == _this.forumId && _this.discussionId == data.discussionId
@@ -319,7 +365,7 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
                         _this.discussion.starred = data.starred;
                     }
                     if (typeof data.deleted != 'undefined' && data.deleted) {
-                        if (data.post.parent == 0) {
+                        if (!data.post.parentid) {
                             if (_this.svComponent && _this.svComponent.isOn()) {
                                 _this.svComponent.emptyDetails();
                             }
@@ -404,9 +450,11 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
         var hasUnreadPosts = false;
         var ratingInfo;
         return syncPromise.then(function () {
-            return _this.forumProvider.getDiscussionPosts(_this.discussionId).then(function (response) {
+            return _this.forumProvider.getDiscussionPosts(_this.discussionId, { cmId: _this.cmId }).then(function (response) {
                 onlinePosts = response.posts;
                 ratingInfo = response.ratinginfo;
+                _this.courseId = response.courseid || _this.courseId;
+                _this.forumId = response.forumid || _this.forumId;
             }).then(function () {
                 // Check if there are responses stored in offline.
                 return _this.forumOffline.getDiscussionReplies(_this.discussionId).then(function (replies) {
@@ -416,7 +464,7 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
                     var posts = {};
                     onlinePosts.forEach(function (post) {
                         posts[post.id] = post;
-                        hasUnreadPosts = hasUnreadPosts || !post.postread;
+                        hasUnreadPosts = hasUnreadPosts || !!post.unread;
                     });
                     replies.forEach(function (offlineReply) {
                         // If we don't have forumId and courseId, get it from the post.
@@ -429,7 +477,7 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
                         convertPromises.push(_this.forumHelper.convertOfflineReplyToOnline(offlineReply).then(function (reply) {
                             offlineReplies.push(reply);
                             // Disable reply of the parent. Reply in offline to the same post is not allowed, edit instead.
-                            posts[reply.parent].canreply = false;
+                            posts[reply.parentid].capabilities.reply = false;
                         }));
                     });
                     return Promise.all(convertPromises).then(function () {
@@ -440,16 +488,13 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
             });
         }).then(function () {
             var posts = offlineReplies.concat(onlinePosts);
-            var startingPost = _this.forumProvider.extractStartingPost(posts);
-            if (startingPost) {
-                // Update discussion data from first post.
-                _this.discussion = Object.assign(_this.discussion || {}, startingPost);
-            }
+            _this.startingPost = _this.forumProvider.extractStartingPost(posts);
             // If sort type is nested, normal sorting is disabled and nested posts will be displayed.
             if (_this.sort == 'nested') {
                 // Sort first by creation date to make format tree work.
                 _this.forumProvider.sortDiscussionPosts(posts, 'ASC');
-                posts = _this.utils.formatTree(posts, 'parent', 'id', _this.discussion.id);
+                var rootId = _this.startingPost ? _this.startingPost.id : (_this.discussion ? _this.discussion.id : 0);
+                posts = _this.utils.formatTree(posts, 'parentid', 'id', rootId);
             }
             else {
                 // Set default reply subject.
@@ -468,44 +513,45 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
                 _this.forum = forum;
                 _this.availabilityMessage = _this.forumHelper.getAvailabilityMessage(forum);
                 var promises = [];
-                promises.push(_this.forumProvider.getAccessInformation(_this.forumId).then(function (accessInfo) {
+                promises.push(_this.forumProvider.getAccessInformation(_this.forumId, { cmId: _this.cmId }).then(function (accessInfo) {
                     _this.accessInfo = accessInfo;
                     // Disallow replying if cut-off date is reached and the user has not the capability to override it.
                     // Just in case the posts were fetched from WS when the cut-off date was not reached but it is now.
                     if (_this.forumHelper.isCutoffDateReached(forum) && !accessInfo.cancanoverridecutoff) {
                         posts.forEach(function (post) {
-                            post.canreply = false;
+                            post.capabilities.reply = false;
                         });
                     }
                 }));
                 // The discussion object was not passed as parameter and there is no starting post. Should not happen.
                 if (!_this.discussion) {
-                    promises.push(_this.loadDiscussion(_this.forumId, _this.discussionId));
+                    promises.push(_this.loadDiscussion(_this.forumId, _this.cmId, _this.discussionId));
                 }
                 return Promise.all(promises);
             }).catch(function () {
                 // Ignore errors.
             }).then(function () {
-                if (!_this.discussion) {
+                if (!_this.discussion && !_this.startingPost) {
                     // The discussion object was not passed as parameter and there is no starting post. Should not happen.
                     return Promise.reject('Invalid forum discussion.');
                 }
-                if (_this.discussion.userfullname && _this.discussion.parent == 0 && _this.forum.type == 'single') {
-                    // Hide author for first post and type single.
-                    _this.discussion.userfullname = null;
+                if (_this.startingPost.author && _this.forum.type == 'single') {
+                    // Hide author and groups for first post and type single.
+                    _this.startingPost.author.fullname = null;
+                    _this.startingPost.author.groups = null;
                 }
                 _this.posts = posts;
                 _this.ratingInfo = ratingInfo;
                 _this.postSubjects = _this.getAllPosts().reduce(function (postSubjects, post) {
                     postSubjects[post.id] = post.subject;
                     return postSubjects;
-                }, (_a = {}, _a[_this.discussion.id] = _this.discussion.subject, _a));
+                }, (_a = {}, _a[_this.startingPost.id] = _this.startingPost.subject, _a));
                 var _a;
             });
         }).then(function () {
             if (_this.forumProvider.isSetPinStateAvailableForSite()) {
                 // Use the canAddDiscussion WS to check if the user can pin discussions.
-                return _this.forumProvider.canAddDiscussionToAll(_this.forumId).then(function (response) {
+                return _this.forumProvider.canAddDiscussionToAll(_this.forumId, { cmId: _this.cmId }).then(function (response) {
                     _this.canPin = !!response.canpindiscussions;
                 }).catch(function () {
                     _this.canPin = false;
@@ -542,14 +588,15 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
      * Convenience function to load discussion.
      *
      * @param  forumId Forum ID.
+     * @param  cmId Forum cmid.
      * @param  discussionId Discussion ID.
      * @return Promise resolved when done.
      */
-    AddonModForumDiscussionPage.prototype.loadDiscussion = function (forumId, discussionId) {
+    AddonModForumDiscussionPage.prototype.loadDiscussion = function (forumId, cmId, discussionId) {
         var _this = this;
         // Fetch the discussion if not passed as parameter.
         if (!this.discussion && forumId) {
-            return this.forumHelper.getDiscussionById(forumId, discussionId).then(function (discussion) {
+            return this.forumHelper.getDiscussionById(forumId, cmId, discussionId).then(function (discussion) {
                 _this.discussion = discussion;
                 _this.discussionId = _this.discussion.discussion;
             }).catch(function () {
@@ -746,6 +793,7 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
         this.ratingOfflineObserver && this.ratingOfflineObserver.off();
         this.ratingSyncObserver && this.ratingSyncObserver.off();
         this.changeDiscObserver && this.changeDiscObserver.off();
+        delete this.syncObserver;
     };
     /**
      * Page destroyed.
@@ -777,24 +825,24 @@ var AddonModForumDiscussionPage = /** @class */ (function () {
         return posts;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
     ], AddonModForumDiscussionPage.prototype, "content", void 0);
     AddonModForumDiscussionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-forum-discussion',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/discussion/discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title *ngIf="discussion"><core-format-text [text]="discussion.subject" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId"></core-format-text></ion-title>\n        <ion-buttons end>\n            <!-- The context menu will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<core-navbar-buttons end>\n    <core-context-menu>\n        <core-context-menu-item [priority]="650" *ngIf="discussionLoaded && !postHasOffline && isOnline" [content]="\'addon.mod_forum.refreshposts\' | translate" (action)="doRefresh(null, $event)" [iconAction]="refreshIcon" [closeOnClick]="false"></core-context-menu-item>\n        <core-context-menu-item [priority]="550" *ngIf="discussionLoaded && !isSplitViewOn && postHasOffline && isOnline" [content]="\'core.settings.synchronizenow\' | translate" (action)="doRefresh(null, $event, true)" [iconAction]="syncIcon" [closeOnClick]="false"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'flat-oldest\'" [priority]="500" [content]="\'addon.mod_forum.modeflatoldestfirst\' | translate" (action)="changeSort(\'flat-oldest\')" iconAction="arrow-round-down"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'flat-newest\'" [priority]="450" [content]="\'addon.mod_forum.modeflatnewestfirst\' | translate" (action)="changeSort(\'flat-newest\')" iconAction="arrow-round-up"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'nested\'" [priority]="400" [content]="\'addon.mod_forum.modenested\' | translate" (action)="changeSort(\'nested\')" iconAction="swap"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canlock || discussion.locked" [priority]="300" [content]="\'addon.mod_forum.lockdiscussion\' | translate" (action)="setLockState(true)" iconAction="fa-lock"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canlock || !discussion.locked" [priority]="300" [content]="\'addon.mod_forum.unlockdiscussion\' | translate" (action)="setLockState(false)" iconAction="fa-unlock"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !canPin || discussion.pinned" [priority]="250" [content]="\'addon.mod_forum.pindiscussion\' | translate" (action)="setPinState(true)" iconAction="fa-map-pin"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !canPin || !discussion.pinned" [priority]="250" [content]="\'addon.mod_forum.unpindiscussion\' | translate" (action)="setPinState(false)" iconAction="fa-map-pin" [iconSlash]="true"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canfavourite || discussion.starred" [priority]="200" [content]="\'addon.mod_forum.addtofavourites\' | translate" (action)="toggleFavouriteState(true)" iconAction="fa-star"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canfavourite || !discussion.starred" [priority]="200" [content]="\'addon.mod_forum.removefromfavourites\' | translate" (action)="toggleFavouriteState(false)" iconAction="fa-star" [iconSlash]="true"></core-context-menu-item>\n    </core-context-menu>\n</core-navbar-buttons>\n<ion-content>\n    <ion-refresher [enabled]="discussionLoaded" (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <core-loading [hideUntil]="discussionLoaded">\n        <!-- Discussion replies found to be synchronized -->\n        <ion-card class="core-warning-card" *ngIf="postHasOffline || hasOfflineRatings">\n            <ion-icon name="warning"></ion-icon> {{ \'core.hasdatatosync\' | translate:{$a: discussionStr} }}\n        </ion-card>\n\n        <!-- Cut-off date or due date message -->\n        <ion-card class="core-info-card" icon-start *ngIf="availabilityMessage">\n            <ion-icon name="information-circle"></ion-icon> {{ availabilityMessage }}\n        </ion-card>\n\n        <ion-card class="core-info-card" icon-start *ngIf="discussion && discussion.locked">\n            <core-icon name="fa-lock"></core-icon> {{ \'addon.mod_forum.discussionlocked\' | translate }}\n        </ion-card>\n\n        <div *ngIf="discussion" margin-bottom class="highlight">\n            <addon-mod-forum-post [post]="discussion" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n        </div>\n\n        <ion-card *ngIf="sort != \'nested\'">\n            <ng-container *ngFor="let post of posts; first as first">\n                <ion-item-divider *ngIf="!first"></ion-item-divider>\n                <addon-mod-forum-post [post]="post" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [parentSubject]="postSubjects[post.parent]" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n            </ng-container>\n        </ion-card>\n\n        <ng-container *ngIf="sort == \'nested\'">\n            <ng-container *ngFor="let post of posts">\n                <ng-container *ngTemplateOutlet="nestedPosts; context: {post: post}"></ng-container>\n            </ng-container>\n        </ng-container>\n\n        <ng-template #nestedPosts let-post="post">\n            <ion-card>\n                <addon-mod-forum-post [post]="post" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [parentSubject]="postSubjects[post.parent]" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n            </ion-card>\n            <div padding-left *ngIf="post.children.length && post.children[0].subject">\n                <ng-container *ngFor="let child of post.children">\n                    <ng-container *ngTemplateOutlet="nestedPosts; context: {post: child}"></ng-container>\n                </ng-container>\n            </div>\n        </ng-template>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/discussion/discussion.html"*/,
+            selector: 'page-addon-mod-forum-discussion',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/discussion/discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title *ngIf="startingPost"><core-format-text [text]="startingPost.subject" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId"></core-format-text></ion-title>\n        <ion-buttons end>\n            <!-- The context menu will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<core-navbar-buttons end>\n    <core-context-menu>\n        <core-context-menu-item [priority]="650" *ngIf="discussionLoaded && !postHasOffline && isOnline" [content]="\'addon.mod_forum.refreshposts\' | translate" (action)="doRefresh(null, $event)" [iconAction]="refreshIcon" [closeOnClick]="false"></core-context-menu-item>\n        <core-context-menu-item [priority]="550" *ngIf="discussionLoaded && !isSplitViewOn && postHasOffline && isOnline" [content]="\'core.settings.synchronizenow\' | translate" (action)="doRefresh(null, $event, true)" [iconAction]="syncIcon" [closeOnClick]="false"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'flat-oldest\'" [priority]="500" [content]="\'addon.mod_forum.modeflatoldestfirst\' | translate" (action)="changeSort(\'flat-oldest\')" iconAction="arrow-round-down"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'flat-newest\'" [priority]="450" [content]="\'addon.mod_forum.modeflatnewestfirst\' | translate" (action)="changeSort(\'flat-newest\')" iconAction="arrow-round-up"></core-context-menu-item>\n        <core-context-menu-item [hidden]="sort == \'nested\'" [priority]="400" [content]="\'addon.mod_forum.modenested\' | translate" (action)="changeSort(\'nested\')" iconAction="swap"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canlock || discussion.locked" [priority]="300" [content]="\'addon.mod_forum.lockdiscussion\' | translate" (action)="setLockState(true)" iconAction="fa-lock"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canlock || !discussion.locked" [priority]="300" [content]="\'addon.mod_forum.unlockdiscussion\' | translate" (action)="setLockState(false)" iconAction="fa-unlock"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !canPin || discussion.pinned" [priority]="250" [content]="\'addon.mod_forum.pindiscussion\' | translate" (action)="setPinState(true)" iconAction="fa-map-pin"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !canPin || !discussion.pinned" [priority]="250" [content]="\'addon.mod_forum.unpindiscussion\' | translate" (action)="setPinState(false)" iconAction="fa-map-pin" [iconSlash]="true"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canfavourite || discussion.starred" [priority]="200" [content]="\'addon.mod_forum.addtofavourites\' | translate" (action)="toggleFavouriteState(true)" iconAction="fa-star"></core-context-menu-item>\n        <core-context-menu-item [hidden]="!discussion || !discussion.canfavourite || !discussion.starred" [priority]="200" [content]="\'addon.mod_forum.removefromfavourites\' | translate" (action)="toggleFavouriteState(false)" iconAction="fa-star" [iconSlash]="true"></core-context-menu-item>\n    </core-context-menu>\n</core-navbar-buttons>\n<ion-content>\n    <ion-refresher [enabled]="discussionLoaded" (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <core-loading [hideUntil]="discussionLoaded">\n        <!-- Discussion replies found to be synchronized -->\n        <ion-card class="core-warning-card" *ngIf="postHasOffline || hasOfflineRatings">\n            <ion-icon name="warning"></ion-icon> {{ \'core.hasdatatosync\' | translate:{$a: discussionStr} }}\n        </ion-card>\n\n        <!-- Cut-off date or due date message -->\n        <ion-card class="core-info-card" icon-start *ngIf="availabilityMessage">\n            <ion-icon name="information-circle"></ion-icon> {{ availabilityMessage }}\n        </ion-card>\n\n        <ion-card class="core-info-card" icon-start *ngIf="discussion && discussion.locked">\n            <core-icon name="fa-lock"></core-icon> {{ \'addon.mod_forum.discussionlocked\' | translate }}\n        </ion-card>\n\n        <div *ngIf="startingPost" margin-bottom class="highlight">\n            <addon-mod-forum-post [post]="startingPost" [discussion]="discussion" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n        </div>\n\n        <ion-card *ngIf="sort != \'nested\'">\n            <ng-container *ngFor="let post of posts; first as first">\n                <ion-item-divider *ngIf="!first"></ion-item-divider>\n                <addon-mod-forum-post [post]="post" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [parentSubject]="postSubjects[post.parentid]" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n            </ng-container>\n        </ion-card>\n\n        <ng-container *ngIf="sort == \'nested\'">\n            <ng-container *ngFor="let post of posts">\n                <ng-container *ngTemplateOutlet="nestedPosts; context: {post: post}"></ng-container>\n            </ng-container>\n        </ng-container>\n\n        <ng-template #nestedPosts let-post="post">\n            <ion-card>\n                <addon-mod-forum-post [post]="post" [courseId]="courseId" [discussionId]="discussionId" [component]="component" [componentId]="cmId" [replyData]="replyData" [originalData]="originalData" [parentSubject]="postSubjects[post.parentid]" [forum]="forum" [accessInfo]="accessInfo" [trackPosts]="trackPosts" [ratingInfo]="ratingInfo" [leavingPage]="leavingPage" (onPostChange)="postListChanged()"></addon-mod-forum-post>\n            </ion-card>\n            <div padding-left *ngIf="post.children.length && post.children[0].subject">\n                <ng-container *ngFor="let child of post.children">\n                    <ng-container *ngTemplateOutlet="nestedPosts; context: {post: child}"></ng-container>\n                </ng-container>\n            </div>\n        </ng-template>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/discussion/discussion.html"*/,
         }),
-        __param(16, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __param(16, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Optional */])()),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_network__["a" /* Network */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* NgZone */],
             __WEBPACK_IMPORTED_MODULE_4__providers_app__["b" /* CoreAppProvider */],
             __WEBPACK_IMPORTED_MODULE_5__providers_events__["b" /* CoreEventsProvider */],
             __WEBPACK_IMPORTED_MODULE_6__providers_sites__["b" /* CoreSitesProvider */],
             __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__["b" /* CoreDomUtilsProvider */],
             __WEBPACK_IMPORTED_MODULE_8__providers_utils_utils__["b" /* CoreUtilsProvider */],
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_9__core_fileuploader_providers_fileuploader__["a" /* CoreFileUploaderProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__core_fileuploader_providers_fileuploader__["b" /* CoreFileUploaderProvider */],
             __WEBPACK_IMPORTED_MODULE_15__providers_forum__["a" /* AddonModForumProvider */],
             __WEBPACK_IMPORTED_MODULE_16__providers_offline__["a" /* AddonModForumOfflineProvider */],
             __WEBPACK_IMPORTED_MODULE_17__providers_helper__["a" /* AddonModForumHelperProvider */],

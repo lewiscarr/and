@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 2136:
+/***/ 2143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__text__ = __webpack_require__(2296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__text__ = __webpack_require__(2303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Moodle Pty Ltd.
@@ -44,7 +44,7 @@ var CoreViewerTextPageModule = /** @class */ (function () {
     function CoreViewerTextPageModule() {
     }
     CoreViewerTextPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__text__["a" /* CoreViewerTextPage */]
             ],
@@ -63,7 +63,7 @@ var CoreViewerTextPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2296:
+/***/ 2303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -129,7 +129,7 @@ var CoreViewerTextPage = /** @class */ (function () {
     };
     CoreViewerTextPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-viewer-text',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/core/viewer/pages/text/text.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ title }}</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding>\n    <core-format-text [text]="content" [component]="component" [componentId]="componentId" [filter]="filter" [contextLevel]="contextLevel" [contextInstanceId]="instanceId" [courseId]="courseId"></core-format-text>\n\n    <ion-card *ngIf="files && files.length">\n        <core-file *ngFor="let file of files" [file]="file" [component]="component" [componentId]="componentId"></core-file>\n    </ion-card>\n</ion-content>\n<ion-footer color="light" *ngIf="displayCopyButton">\n    <button ion-button block color="light" icon-start (click)="copyText()">\n        <ion-icon name="copy" aria-hidden="true"></ion-icon>\n        {{ \'core.copytoclipboard\' | translate }}\n    </button>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/core/viewer/pages/text/text.html"*/,
+            selector: 'page-core-viewer-text',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/core/viewer/pages/text/text.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ title }}</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding>\n    <core-format-text [text]="content" [component]="component" [componentId]="componentId" [filter]="filter" [contextLevel]="contextLevel" [contextInstanceId]="instanceId" [courseId]="courseId"></core-format-text>\n\n    <ion-card *ngIf="files && files.length">\n        <core-file *ngFor="let file of files" [file]="file" [component]="component" [componentId]="componentId"></core-file>\n    </ion-card>\n</ion-content>\n<ion-footer color="light" *ngIf="displayCopyButton">\n    <button ion-button block color="light" icon-start (click)="copyText()">\n        <ion-icon name="copy" aria-hidden="true"></ion-icon>\n        {{ \'core.copytoclipboard\' | translate }}\n    </button>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/core/viewer/pages/text/text.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_text__["b" /* CoreTextUtilsProvider */]])
     ], CoreViewerTextPage);

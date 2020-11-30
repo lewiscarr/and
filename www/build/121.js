@@ -1,6 +1,6 @@
 webpackJsonp([121],{
 
-/***/ 2019:
+/***/ 2025:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chat__ = __webpack_require__(2175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chat__ = __webpack_require__(2181);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,7 @@ var AddonModChatChatPageModule = /** @class */ (function () {
     function AddonModChatChatPageModule() {
     }
     AddonModChatChatPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__chat__["a" /* AddonModChatChatPage */],
             ],
@@ -63,23 +63,23 @@ var AddonModChatChatPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2175:
+/***/ 2181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModChatChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_logger__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_chat__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_helper__ = __webpack_require__(1004);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__classes_animations__ = __webpack_require__(429);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_send_message_form_send_message_form__ = __webpack_require__(1015);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_helper__ = __webpack_require__(1009);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__classes_animations__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_send_message_form_send_message_form__ = __webpack_require__(1020);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -192,7 +192,8 @@ var AddonModChatChatPage = /** @class */ (function () {
         var _this = this;
         // Create the toc modal.
         var modal = this.modalCtrl.create('AddonModChatUsersPage', {
-            sessionId: this.sessionId
+            sessionId: this.sessionId,
+            cmId: this.cmId,
         }, { cssClass: 'core-modal-lateral',
             showBackdrop: true,
             enableBackdropDismiss: true,
@@ -228,7 +229,7 @@ var AddonModChatChatPage = /** @class */ (function () {
         if (user) {
             return Promise.resolve(user.fullname);
         }
-        return this.chatProvider.getChatUsers(this.sessionId).then(function (data) {
+        return this.chatProvider.getChatUsers(this.sessionId, { cmId: this.cmId }).then(function (data) {
             _this.users = data.users;
             var user = _this.users.find(function (user) { return user.id == id; });
             if (user) {
@@ -428,19 +429,19 @@ var AddonModChatChatPage = /** @class */ (function () {
         this.viewDestroyed = true;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
     ], AddonModChatChatPage.prototype, "content", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11__components_send_message_form_send_message_form__["a" /* CoreSendMessageFormComponent */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11__components_send_message_form_send_message_form__["a" /* CoreSendMessageFormComponent */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_11__components_send_message_form_send_message_form__["a" /* CoreSendMessageFormComponent */])
     ], AddonModChatChatPage.prototype, "sendMessageForm", void 0);
     AddonModChatChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-chat-chat',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/mod/chat/pages/chat/chat.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId"></core-format-text></ion-title>\n        <ion-buttons end>\n            <button *ngIf="loaded" ion-button icon-only (click)="showChatUsers()">\n                <ion-icon name="people"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content class="has-footer">\n    <core-loading [hideUntil]="loaded">\n        <ion-list class="addon-messages-discussion-container safe-area-page" aria-live="polite">\n            <ng-container *ngFor="let message of messages; index as index; last as last">\n\n                <h6 text-center *ngIf="message.showDate" class="addon-messages-date">\n                    {{ message.timestamp * 1000 | coreFormatDate:"strftimedayshort" }}\n                </h6>\n\n                <div text-center *ngIf="message.special" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="success" *ngIf="message.system && message.message == \'enter\'">\n                        <span><core-icon name="fa-sign-in"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageenter\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="danger" *ngIf="message.system && message.message == \'exit\'">\n                        <span><core-icon name="fa-sign-out"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageexit\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="primary" *ngIf="message.beep == \'all\'">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messagebeepseveryone\' | translate:{$a: message.userfullname} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="primary" *ngIf="message.userid != currentUserId && message.beep == currentUserId">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messagebeepsyou\' | translate:{$a: message.userfullname} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="light" *ngIf="message.userid == currentUserId && message.beep && message.beep != \'all\'">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messageyoubeep\' | translate:{$a: message.beepWho} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="info" *ngIf="!message.system && !message.beep">\n                        <span><core-icon name="fa-asterisk"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                            <strong>{{ message.userfullname }} <core-format-text [text]="message.message" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId" (afterRender)="last && scrollToBottom()"></core-format-text></strong></span>\n                    </ion-badge>\n                </div>\n\n                <ion-item text-wrap *ngIf="!message.special" class="addon-message" [class.addon-message-mine]="message.userid == currentUserId" [class.addon-message-not-mine]="message.userid != currentUserId" [class.addon-message-no-user]="!message.showUserData" [@coreSlideInOut]="message.userid == currentUserId ? \'\' : \'fromLeft\'">\n                    <!-- User data. -->\n                    <h2 class="addon-message-user">\n                        <ion-avatar item-start core-user-avatar [user]="message" [linkProfile]="false" *ngIf="message.showUserData"></ion-avatar>\n                        <div *ngIf="message.showUserData">{{ message.userfullname }}</div>\n                        <ion-note>{{ message.timestamp * 1000 | coreFormatDate: "strftimetime" }}</ion-note>\n                    </h2>\n\n                    <p class="addon-message-text">\n                        <core-format-text [text]="message.message" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId" (afterRender)="last && scrollToBottom()"></core-format-text>\n                    </p>\n                    <div class="tail" *ngIf="message.showTail"></div>\n                </ion-item>\n            </ng-container>\n\n        </ion-list>\n        <core-empty-box *ngIf="!messages || messages.length <= 0" icon="chatbubbles" [message]="\'addon.mod_chat.nomessages\' | translate"></core-empty-box>\n    </core-loading>\n</ion-content>\n<ion-footer color="light" class="footer-adjustable">\n    <ion-toolbar color="light" position="bottom">\n        <p text-center *ngIf="!isOnline">{{ \'addon.mod_chat.mustbeonlinetosendmessages\' | translate }}</p>\n        <core-send-message-form [sendDisabled]="sending" *ngIf="isOnline && polling && loaded" [message]="newMessage" (onSubmit)="sendMessage($event)" [placeholder]="\'addon.messages.newmessage\' | translate" (onResize)="resizeContent()"></core-send-message-form>\n        <button *ngIf="isOnline && !polling && loaded" (click)="reconnect()" ion-button block color="light">{{ \'core.login.reconnect\' | translate }}</button>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/mod/chat/pages/chat/chat.html"*/,
+            selector: 'page-addon-mod-chat-chat',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/mod/chat/pages/chat/chat.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId"></core-format-text></ion-title>\n        <ion-buttons end>\n            <button *ngIf="loaded" ion-button icon-only (click)="showChatUsers()">\n                <ion-icon name="people"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content class="has-footer">\n    <core-loading [hideUntil]="loaded">\n        <ion-list class="addon-messages-discussion-container safe-area-page" aria-live="polite">\n            <ng-container *ngFor="let message of messages; index as index; last as last">\n\n                <h6 text-center *ngIf="message.showDate" class="addon-messages-date">\n                    {{ message.timestamp * 1000 | coreFormatDate:"strftimedayshort" }}\n                </h6>\n\n                <div text-center *ngIf="message.special" class="addon-mod-chat-notice">\n                    <ion-badge text-wrap color="success" *ngIf="message.system && message.message == \'enter\'">\n                        <span><core-icon name="fa-sign-in"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageenter\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="danger" *ngIf="message.system && message.message == \'exit\'">\n                        <span><core-icon name="fa-sign-out"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageexit\' | translate:{$a: message.userfullname} }}</span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="primary" *ngIf="message.beep == \'all\'">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messagebeepseveryone\' | translate:{$a: message.userfullname} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="primary" *ngIf="message.userid != currentUserId && message.beep == currentUserId">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messagebeepsyou\' | translate:{$a: message.userfullname} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="light" *ngIf="message.userid == currentUserId && message.beep && message.beep != \'all\'">\n                        <span><ion-icon name="notifications"></ion-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                        {{ \'addon.mod_chat.messageyoubeep\' | translate:{$a: message.beepWho} }} </span>\n                    </ion-badge>\n\n                    <ion-badge text-wrap color="info" *ngIf="!message.system && !message.beep">\n                        <span><core-icon name="fa-asterisk"></core-icon> {{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}\n                            <strong>{{ message.userfullname }} <core-format-text [text]="message.message" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId" (afterRender)="last && scrollToBottom()"></core-format-text></strong></span>\n                    </ion-badge>\n                </div>\n\n                <ion-item text-wrap *ngIf="!message.special" class="addon-message" [class.addon-message-mine]="message.userid == currentUserId" [class.addon-message-not-mine]="message.userid != currentUserId" [class.addon-message-no-user]="!message.showUserData" [@coreSlideInOut]="message.userid == currentUserId ? \'\' : \'fromLeft\'">\n                    <!-- User data. -->\n                    <h2 class="addon-message-user">\n                        <ion-avatar item-start core-user-avatar [user]="message" [linkProfile]="false" *ngIf="message.showUserData"></ion-avatar>\n                        <div *ngIf="message.showUserData">{{ message.userfullname }}</div>\n                        <ion-note>{{ message.timestamp * 1000 | coreFormatDate: "strftimetime" }}</ion-note>\n                    </h2>\n\n                    <p class="addon-message-text">\n                        <core-format-text [text]="message.message" contextLevel="module" [contextInstanceId]="cmId" [courseId]="courseId" (afterRender)="last && scrollToBottom()"></core-format-text>\n                    </p>\n                    <div class="tail" *ngIf="message.showTail"></div>\n                </ion-item>\n            </ng-container>\n\n        </ion-list>\n        <core-empty-box *ngIf="!messages || messages.length <= 0" icon="chatbubbles" [message]="\'addon.mod_chat.nomessages\' | translate"></core-empty-box>\n    </core-loading>\n</ion-content>\n<ion-footer color="light" class="footer-adjustable">\n    <ion-toolbar color="light" position="bottom">\n        <p text-center *ngIf="!isOnline">{{ \'addon.mod_chat.mustbeonlinetosendmessages\' | translate }}</p>\n        <core-send-message-form [sendDisabled]="sending" *ngIf="isOnline && polling && loaded" [message]="newMessage" (onSubmit)="sendMessage($event)" [placeholder]="\'addon.messages.newmessage\' | translate" (onResize)="resizeContent()"></core-send-message-form>\n        <button *ngIf="isOnline && !polling && loaded" (click)="reconnect()" ion-button block color="light">{{ \'core.login.reconnect\' | translate }}</button>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/mod/chat/pages/chat/chat.html"*/,
             animations: [__WEBPACK_IMPORTED_MODULE_10__classes_animations__["b" /* coreSlideInOut */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_logger__["b" /* CoreLoggerProvider */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_logger__["b" /* CoreLoggerProvider */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* NgZone */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_7__providers_chat__["a" /* AddonModChatProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["b" /* CoreAppProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["b" /* CoreSitesProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["b" /* CoreDomUtilsProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_events__["b" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_helper__["a" /* AddonModChatHelperProvider */]])

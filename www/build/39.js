@@ -1,6 +1,6 @@
 webpackJsonp([39],{
 
-/***/ 2106:
+/***/ 2112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reconnect__ = __webpack_require__(2266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reconnect__ = __webpack_require__(2272);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Moodle Pty Ltd.
@@ -41,7 +41,7 @@ var CoreLoginReconnectPageModule = /** @class */ (function () {
     function CoreLoginReconnectPageModule() {
     }
     CoreLoginReconnectPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__reconnect__["a" /* CoreLoginReconnectPage */]
             ],
@@ -60,19 +60,19 @@ var CoreLoginReconnectPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2266:
+/***/ 2272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginReconnectPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(29);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -153,7 +153,7 @@ var CoreLoginReconnectPage = /** @class */ (function () {
             // Show logo instead of avatar if it's a fixed site.
             _this.showSiteAvatar = _this.site.avatar && !_this.loginHelper.getFixedSites();
             return site.getPublicConfig().then(function (config) {
-                return _this.sitesProvider.checkRequiredMinimumVersion(config).then(function () {
+                return _this.sitesProvider.checkApplication(config).then(function () {
                     // Check logoURL if user avatar is not set.
                     if (_this.site.avatar.startsWith(site.infos.siteurl + '/theme/image.php')) {
                         _this.showSiteAvatar = false;
@@ -276,12 +276,12 @@ var CoreLoginReconnectPage = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('reconnectForm'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])('reconnectForm'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], CoreLoginReconnectPage.prototype, "formElement", void 0);
     CoreLoginReconnectPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-login-reconnect',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/core/login/pages/reconnect/reconnect.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.login.reconnect\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content padding>\n    <div *ngIf="site" text-wrap text-center margin-bottom [ngClass]="{\'item-avatar-center\': showSiteAvatar}">\n        <ng-container *ngIf="showSiteAvatar">\n            <ion-avatar>\n                <!-- Show user avatar. -->\n                <img [src]="site.avatar" class="avatar" core-external-content [siteId]="site.id" alt="{{ \'core.pictureof\' | translate:{$a: site.fullname} }}" role="presentation" onError="this.src=\'assets/img/user-avatar.png\'">\n            </ion-avatar>\n        </ng-container>\n\n        <div class="core-login-site-logo" *ngIf="!showSiteAvatar">\n            <!-- Show site logo or a default image. -->\n            <img *ngIf="logoUrl" [src]="logoUrl" role="presentation" onError="this.src=\'assets/img/login_logo.png\'">\n            <img *ngIf="!logoUrl" src="assets/img/login_logo.png" role="presentation">\n        </div>\n\n        <h3 *ngIf="siteName" padding class="core-sitename"><core-format-text [text]="siteName" [filter]="false"></core-format-text></h3>\n        <p class="core-siteurl">{{siteUrl}}</p>\n\n        <p *ngIf="!isLoggedOut" class="core-login-reconnect-warning">\n            <ion-icon padding name="alert"></ion-icon> {{ \'core.login.reconnectdescription\' | translate }}\n        </p>\n    </div>\n    <form ion-list *ngIf="!isOAuth" [formGroup]="credForm" (ngSubmit)="login($event)" class="core-login-form" #reconnectForm>\n        <ion-item text-wrap class="core-username">\n            <p>{{username}}</p>\n        </ion-item>\n        <ion-item margin-bottom>\n            <core-show-password item-content [name]="\'password\'">\n                <ion-input class="core-ioninput-password" name="password" type="password" placeholder="{{ \'core.login.password\' | translate }}" formControlName="password" [clearOnEdit]="false"></ion-input>\n            </core-show-password>\n        </ion-item>\n        <ion-grid padding>\n            <ion-row>\n                <ion-col>\n                    <a ion-button block color="light" (click)="cancel($event)">{{ \'core.login.cancel\' | translate }}</a>\n                </ion-col>\n                <ion-col>\n                    <button ion-button block [disabled]="!credForm.valid">{{ \'core.login.loginbutton\' | translate }}</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n\n    <!-- Forgotten password button. -->\n    <ion-list no-lines *ngIf="showForgottenPassword && !isOAuth" class="core-login-forgotten-password">\n        <a ion-item text-center text-wrap (click)="forgottenPassword()" detail-none>\n            {{ \'core.login.forgotten\' | translate }}\n        </a>\n    </ion-list>\n\n    <!-- Identity providers. -->\n    <ion-list *ngIf="identityProviders && identityProviders.length" padding-top class="core-login-identity-providers">\n        <ion-item text-wrap><h3 class="item-heading">{{ \'core.login.potentialidps\' | translate }}</h3></ion-item>\n        <button ion-item *ngFor="let provider of identityProviders" text-wrap class="core-oauth-icon" (click)="oauthClicked(provider)" title="{{provider.name}}">\n            <img [src]="provider.iconurl" alt="" width="32" height="32" item-start>\n            {{provider.name}}\n        </button>\n    </ion-list>\n\n    <!-- If OAuth, display cancel button since the form isn\'t displayed. -->\n    <ion-list *ngIf="isOAuth">\n        <ion-item>\n            <a ion-button block color="light" (click)="cancel($event)">{{ \'core.login.cancel\' | translate }}</a>\n        </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/core/login/pages/reconnect/reconnect.html"*/,
+            selector: 'page-core-login-reconnect',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/core/login/pages/reconnect/reconnect.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.login.reconnect\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content padding>\n    <div *ngIf="site" text-wrap text-center margin-bottom [ngClass]="{\'item-avatar-center\': showSiteAvatar}">\n        <ng-container *ngIf="showSiteAvatar">\n            <ion-avatar>\n                <!-- Show user avatar. -->\n                <img [src]="site.avatar" class="avatar" core-external-content [siteId]="site.id" alt="{{ \'core.pictureof\' | translate:{$a: site.fullname} }}" role="presentation" onError="this.src=\'assets/img/user-avatar.png\'">\n            </ion-avatar>\n        </ng-container>\n\n        <div class="core-login-site-logo" *ngIf="!showSiteAvatar">\n            <!-- Show site logo or a default image. -->\n            <img *ngIf="logoUrl" [src]="logoUrl" role="presentation" onError="this.src=\'assets/img/login_logo.png\'">\n            <img *ngIf="!logoUrl" src="assets/img/login_logo.png" role="presentation">\n        </div>\n\n        <h3 *ngIf="siteName" padding class="core-sitename"><core-format-text [text]="siteName" [filter]="false"></core-format-text></h3>\n        <p class="core-siteurl">{{siteUrl}}</p>\n\n        <p *ngIf="!isLoggedOut" class="core-login-reconnect-warning">\n            <ion-icon padding name="alert"></ion-icon> {{ \'core.login.reconnectdescription\' | translate }}\n        </p>\n    </div>\n    <form ion-list *ngIf="!isOAuth" [formGroup]="credForm" (ngSubmit)="login($event)" class="core-login-form" #reconnectForm>\n        <ion-item text-wrap class="core-username">\n            <p>{{username}}</p>\n        </ion-item>\n        <ion-item margin-bottom>\n            <core-show-password item-content [name]="\'password\'">\n                <ion-input class="core-ioninput-password" name="password" type="password" placeholder="{{ \'core.login.password\' | translate }}" formControlName="password" [clearOnEdit]="false" autocomplete="current-password"></ion-input>\n            </core-show-password>\n        </ion-item>\n        <ion-grid padding>\n            <ion-row>\n                <ion-col>\n                    <a ion-button block color="light" (click)="cancel($event)">{{ \'core.login.cancel\' | translate }}</a>\n                </ion-col>\n                <ion-col>\n                    <button ion-button block [disabled]="!credForm.valid">{{ \'core.login.loginbutton\' | translate }}</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n\n    <!-- Forgotten password button. -->\n    <ion-list no-lines *ngIf="showForgottenPassword && !isOAuth" class="core-login-forgotten-password core-login-link">\n        <a ion-item text-center text-wrap (click)="forgottenPassword()" detail-none>\n            {{ \'core.login.forgotten\' | translate }}\n        </a>\n    </ion-list>\n\n    <!-- Identity providers. -->\n    <ion-list *ngIf="identityProviders && identityProviders.length" padding-top class="core-login-identity-providers">\n        <ion-item text-wrap><h3 class="item-heading">{{ \'core.login.potentialidps\' | translate }}</h3></ion-item>\n        <button ion-item *ngFor="let provider of identityProviders" text-wrap class="core-oauth-icon" (click)="oauthClicked(provider)" title="{{provider.name}}">\n            <img [src]="provider.iconurl" alt="" width="32" height="32" item-start>\n            {{provider.name}}\n        </button>\n    </ion-list>\n\n    <!-- If OAuth, display cancel button since the form isn\'t displayed. -->\n    <ion-list *ngIf="isOAuth">\n        <ion-item>\n            <a ion-button block color="light" (click)="cancel($event)">{{ \'core.login.cancel\' | translate }}</a>\n        </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/core/login/pages/reconnect/reconnect.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],

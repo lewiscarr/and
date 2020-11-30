@@ -1,6 +1,6 @@
 webpackJsonp([31],{
 
-/***/ 2114:
+/***/ 2121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about__ = __webpack_require__(2274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about__ = __webpack_require__(2281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(66);
@@ -43,7 +43,7 @@ var CoreSettingsAboutPageModule = /** @class */ (function () {
     function CoreSettingsAboutPageModule() {
     }
     CoreSettingsAboutPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__about__["a" /* CoreSettingsAboutPage */]
             ],
@@ -63,14 +63,14 @@ var CoreSettingsAboutPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2274:
+/***/ 2281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsAboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_split_view_split_view__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__configconstants__ = __webpack_require__(59);
@@ -130,9 +130,9 @@ var CoreSettingsAboutPage = /** @class */ (function () {
     };
     CoreSettingsAboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-settings-about',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/core/settings/pages/about/about.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.about\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-item text-wrap>\n        <h2>{{ appName }} {{ versionName }}</h2>\n    </ion-item>\n    <a ion-item text-wrap (click)="openPage(\'CoreSettingsLicensesPage\')" [title]="\'core.settings.opensourcelicenses\' | translate">\n        <core-icon name="fa-copyright" item-start></core-icon>\n        {{ \'core.settings.opensourcelicenses\' | translate }}\n    </a>\n    <a ion-item text-wrap *ngIf="privacyPolicy" [href]="privacyPolicy" core-link auto-login="no">\n        <core-icon name="fa-user-secret" item-start></core-icon>\n        {{ \'core.settings.privacypolicy\' | translate }}\n    </a>\n    <a ion-item text-wrap (click)="openPage(\'CoreSettingsDeviceInfoPage\')" [title]="\'core.settings.deviceinfo\' | translate">\n        <ion-icon name="phone-portrait" item-start></ion-icon>\n        {{ \'core.settings.deviceinfo\' | translate }}\n    </a>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/core/settings/pages/about/about.html"*/,
+            selector: 'page-core-settings-about',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/core/settings/pages/about/about.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'core.settings.about\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-item text-wrap>\n        <h2>{{ appName }} {{ versionName }}</h2>\n    </ion-item>\n    <a ion-item text-wrap (click)="openPage(\'CoreSettingsLicensesPage\')" [title]="\'core.settings.opensourcelicenses\' | translate">\n        <core-icon name="fa-copyright" item-start></core-icon>\n        {{ \'core.settings.opensourcelicenses\' | translate }}\n    </a>\n    <a ion-item text-wrap *ngIf="privacyPolicy" [href]="privacyPolicy" core-link auto-login="no">\n        <core-icon name="fa-user-secret" item-start></core-icon>\n        {{ \'core.settings.privacypolicy\' | translate }}\n    </a>\n    <a ion-item text-wrap (click)="openPage(\'CoreSettingsDeviceInfoPage\')" [title]="\'core.settings.deviceinfo\' | translate">\n        <ion-icon name="phone-portrait" item-start></ion-icon>\n        {{ \'core.settings.deviceinfo\' | translate }}\n    </a>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/core/settings/pages/about/about.html"*/,
         }),
-        __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Optional */])()),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_app__["b" /* CoreAppProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_sites__["b" /* CoreSitesProvider */],
             __WEBPACK_IMPORTED_MODULE_4__components_split_view_split_view__["a" /* CoreSplitViewComponent */],

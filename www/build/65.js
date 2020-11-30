@@ -1,6 +1,6 @@
 webpackJsonp([65],{
 
-/***/ 2079:
+/***/ 2085:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__course_storage__ = __webpack_require__(2240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__course_storage__ = __webpack_require__(2246);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,7 @@ var AddonStorageManagerCourseStoragePageModule = /** @class */ (function () {
     function AddonStorageManagerCourseStoragePageModule() {
     }
     AddonStorageManagerCourseStoragePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__course_storage__["a" /* AddonStorageManagerCourseStoragePage */],
             ],
@@ -63,7 +63,7 @@ var AddonStorageManagerCourseStoragePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2240:
+/***/ 2246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71,7 +71,7 @@ var AddonStorageManagerCourseStoragePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_course_providers_helper__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(1);
@@ -176,7 +176,7 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
                     // But these aren't necessarily consistent, for example mod_frog vs mmaModFrog.
                     // There is nothing enforcing correct values.
                     // Most modules which have large files are downloadable, so I think this is sufficient.
-                    var promise = _this.prefetchDelegate.getModuleDownloadedSize(module, _this.course.id).
+                    var promise = _this.prefetchDelegate.getModuleStoredSize(module, _this.course.id).
                         then(function (size) {
                         // There are some cases where the return from this is not a valid number.
                         if (!isNaN(size)) {
@@ -208,7 +208,7 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletemodulefiles')];
+                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletestoreddata')];
                     case 1:
                         _a.sent();
                         return [3 /*break*/, 3];
@@ -247,7 +247,7 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletemodulefiles')];
+                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletestoreddata')];
                     case 1:
                         _a.sent();
                         return [3 /*break*/, 3];
@@ -287,7 +287,7 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletemodulefiles')];
+                        return [4 /*yield*/, this.domUtils.showDeleteConfirm('core.course.confirmdeletestoreddata')];
                     case 2:
                         _a.sent();
                         return [3 /*break*/, 4];
@@ -316,8 +316,8 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
         var promises = [];
         modules.forEach(function (module) {
             // Remove the files.
-            var promise = _this.prefetchDelegate.removeModuleFiles(module, _this.course.id).then(function () {
-                // When the files are removed, update the size.
+            var promise = _this.courseHelperProvider.removeModuleStoredData(module, _this.course.id).then(function () {
+                // When the files and cache are removed, update the size.
                 module.parentSection.totalSize -= module.totalSize;
                 _this.totalSize -= module.totalSize;
                 module.totalSize = 0;
@@ -348,12 +348,12 @@ var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
         this.courseProvider.setCourseStatus(this.course.id, __WEBPACK_IMPORTED_MODULE_7__core_constants__["a" /* CoreConstants */].NOT_DOWNLOADED);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
     ], AddonStorageManagerCourseStoragePage.prototype, "content", void 0);
     AddonStorageManagerCourseStoragePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-storagemanager-course-storage',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/storagemanager/pages/course-storage/course-storage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-card class="wholecourse">\n            <ion-card-header>\n                <h1 text-wrap>{{ course.displayname }}</h1>\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n                <ion-item no-padding padding-top class="size" text-wrap>\n                    <ion-icon name="cube" item-start></ion-icon>\n                    <h2 text-wrap>{{ \'addon.storagemanager.storageused\' | translate }}</h2>\n                    <div item-end>\n                        <p text-end>{{ totalSize | coreBytesToSize }}</p>\n                    </div>\n                    <button ion-button icon-only item-end no-padding (click)="deleteForCourse()" [disabled]="totalSize == 0">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourse\' | translate }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-card-header>\n        </ion-card>\n        <ng-container *ngFor="let section of sections">\n            <ion-card *ngIf="section.totalSize > 0" class="section">\n                <ion-card-header>\n                    <ion-item no-padding>\n                        <h2 text-wrap>{{ section.name }}</h2>\n                        <p>\n                            <ion-icon name="cube" item-start></ion-icon>\n                            {{ section.totalSize | coreBytesToSize }}\n                        </p>\n                        <button ion-button icon-only item-end no-padding (click)="deleteForSection(section)">\n                            <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: section.name } }}"></core-icon>\n                        </button>\n                    </ion-item>\n                </ion-card-header>\n                <ion-card-content>\n                    <ng-container *ngFor="let module of section.modules">\n                        <ion-item no-padding *ngIf="module.totalSize > 0">\n                            <h2 class="{{module.handlerData.class}} addon-storagemanager-module-size">\n                                <img *ngIf="module.handlerData.icon" [src]="module.handlerData.icon" alt="" role="presentation" class="core-module-icon"\n                                >\n                                {{ module.name }}\n                            </h2>\n                            <p>\n                            <ion-icon name="cube" item-start></ion-icon>\n                                {{ module.totalSize | coreBytesToSize }}\n                            </p>\n                            <button ion-button icon-only outline item-end (click)="deleteForModule(module)">\n                                <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: module.name } }}"></core-icon>\n                            </button>\n                        </ion-item>\n                    </ng-container>\n                </ion-card-content>\n            </ion-card>\n        </ng-container>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/storagemanager/pages/course-storage/course-storage.html"*/,
+            selector: 'page-addon-storagemanager-course-storage',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/storagemanager/pages/course-storage/course-storage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-card class="wholecourse">\n            <ion-card-header>\n                <h1 text-wrap>\n                    <span *ngIf="course.displayname">{{ course.displayname }}</span>\n                    <span *ngIf="!course.displayname">{{ course.fullname }}</span>\n                </h1>\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n                <ion-item no-padding padding-top class="size" text-wrap>\n                    <ion-icon name="cube" item-start></ion-icon>\n                    <h2 text-wrap>{{ \'addon.storagemanager.storageused\' | translate }}</h2>\n                    <div item-end>\n                        <p text-end>{{ totalSize | coreBytesToSize }}</p>\n                    </div>\n                    <button ion-button icon-only item-end no-padding (click)="deleteForCourse()" [disabled]="totalSize == 0">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourse\' | translate }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-card-header>\n        </ion-card>\n        <ng-container *ngFor="let section of sections">\n            <ion-card *ngIf="section.totalSize > 0" class="section">\n                <ion-card-header>\n                    <ion-item no-padding>\n                        <h2 text-wrap>{{ section.name }}</h2>\n                        <p>\n                            <ion-icon name="cube" item-start></ion-icon>\n                            {{ section.totalSize | coreBytesToSize }}\n                        </p>\n                        <button ion-button icon-only item-end no-padding (click)="deleteForSection(section)">\n                            <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: section.name } }}"></core-icon>\n                        </button>\n                    </ion-item>\n                </ion-card-header>\n                <ion-card-content>\n                    <ng-container *ngFor="let module of section.modules">\n                        <ion-item no-padding *ngIf="module.totalSize > 0">\n                            <h2 class="{{module.handlerData.class}} addon-storagemanager-module-size">\n                                <img *ngIf="module.handlerData.icon" [src]="module.handlerData.icon" alt="" role="presentation" class="core-module-icon"\n                                >\n                                {{ module.name }}\n                            </h2>\n                            <p>\n                            <ion-icon name="cube" item-start></ion-icon>\n                                {{ module.totalSize | coreBytesToSize }}\n                            </p>\n                            <button ion-button icon-only outline item-end (click)="deleteForModule(module)">\n                                <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: module.name } }}"></core-icon>\n                            </button>\n                        </ion-item>\n                    </ng-container>\n                </ion-card-content>\n            </ion-card>\n        </ng-container>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/storagemanager/pages/course-storage/course-storage.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__["b" /* CoreCourseProvider */],

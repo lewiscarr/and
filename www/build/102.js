@@ -1,6 +1,6 @@
 webpackJsonp([102],{
 
-/***/ 2036:
+/***/ 2043:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,8 +11,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__new_discussion__ = __webpack_require__(2192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_editor_components_components_module__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__new_discussion__ = __webpack_require__(2199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_editor_components_components_module__ = __webpack_require__(130);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,7 @@ var AddonModForumNewDiscussionPageModule = /** @class */ (function () {
     function AddonModForumNewDiscussionPageModule() {
     }
     AddonModForumNewDiscussionPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__new_discussion__["a" /* AddonModForumNewDiscussionPage */],
             ],
@@ -63,13 +63,13 @@ var AddonModForumNewDiscussionPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2192:
+/***/ 2199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModForumNewDiscussionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_events__ = __webpack_require__(11);
@@ -79,13 +79,13 @@ var AddonModForumNewDiscussionPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_utils_text__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_utils_utils__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_fileuploader_providers_fileuploader__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_fileuploader_providers_fileuploader__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_split_view_split_view__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_editor_components_rich_text_editor_rich_text_editor_ts__ = __webpack_require__(1003);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_forum__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_editor_components_rich_text_editor_rich_text_editor_ts__ = __webpack_require__(1008);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_forum__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_offline__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_helper__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_sync__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_sync__ = __webpack_require__(197);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -226,6 +226,10 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
      */
     AddonModForumNewDiscussionPage.prototype.ionViewDidEnter = function () {
         var _this = this;
+        if (this.syncObserver) {
+            // Already setup.
+            return;
+        }
         // Refresh data if this discussion is synchronized automatically.
         this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_17__providers_sync__["a" /* AddonModForumSyncProvider */].AUTO_SYNCED, function (data) {
             if (data.forumId == _this.forumId && data.userId == _this.sitesProvider.getCurrentSiteUserId()) {
@@ -283,7 +287,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
                 _this.showGroups = false;
                 _this.newDiscussion.postToAllGroups = false;
                 // Use the canAddDiscussion WS to check if the user can add attachments and pin discussions.
-                promises.push(_this.forumProvider.canAddDiscussionToAll(_this.forumId).then(function (response) {
+                promises.push(_this.forumProvider.canAddDiscussionToAll(_this.forumId, { cmId: _this.cmId }).then(function (response) {
                     _this.canPin = !!response.canpindiscussions;
                     _this.canCreateAttachments = !!response.cancreateattachment;
                 }).catch(function () {
@@ -295,7 +299,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
                 _this.forum = forum;
             }));
             // Get access information.
-            promises.push(_this.forumProvider.getAccessInformation(_this.forumId).then(function (accessInfo) {
+            promises.push(_this.forumProvider.getAccessInformation(_this.forumId, { cmId: _this.cmId }).then(function (accessInfo) {
                 _this.accessInfo = accessInfo;
             }));
             return Promise.all(promises);
@@ -366,7 +370,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
     AddonModForumNewDiscussionPage.prototype.validateVisibleGroups = function (forumGroups) {
         var _this = this;
         // We first check if the user can post to all the groups.
-        return this.forumProvider.canAddDiscussionToAll(this.forumId).catch(function () {
+        return this.forumProvider.canAddDiscussionToAll(this.forumId, { cmId: this.cmId }).catch(function () {
             // The call failed, let's assume he can't.
             return {
                 status: false,
@@ -385,7 +389,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
                 var promises_1 = [];
                 var filtered_1 = [];
                 forumGroups.forEach(function (group) {
-                    promises_1.push(_this.forumProvider.canAddDiscussion(_this.forumId, group.id).catch(function () {
+                    promises_1.push(_this.forumProvider.canAddDiscussion(_this.forumId, group.id, { cmId: _this.cmId }).catch(function () {
                         /* The call failed, let's return true so the group is shown. If the user can't post to
                            it an error will be shown when he tries to add the discussion. */
                         return {
@@ -436,7 +440,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
         var promise;
         if (check) {
             // We need to check if the user can add a discussion to all participants.
-            promise = this.forumProvider.canAddDiscussionToAll(this.forumId).then(function (response) {
+            promise = this.forumProvider.canAddDiscussionToAll(this.forumId, { cmId: this.cmId }).then(function (response) {
                 _this.canPin = !!response.canpindiscussions;
                 _this.canCreateAttachments = !!response.cancreateattachment;
                 return response.status;
@@ -631,6 +635,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
      */
     AddonModForumNewDiscussionPage.prototype.ionViewWillLeave = function () {
         this.syncObserver && this.syncObserver.off();
+        delete this.syncObserver;
     };
     /**
      * Page destroyed.
@@ -642,18 +647,18 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
         this.isDestroyed = true;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('newDiscFormEl'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])('newDiscFormEl'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], AddonModForumNewDiscussionPage.prototype, "formElement", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_13__core_editor_components_rich_text_editor_rich_text_editor_ts__["a" /* CoreEditorRichTextEditorComponent */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_13__core_editor_components_rich_text_editor_rich_text_editor_ts__["a" /* CoreEditorRichTextEditorComponent */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_13__core_editor_components_rich_text_editor_rich_text_editor_ts__["a" /* CoreEditorRichTextEditorComponent */])
     ], AddonModForumNewDiscussionPage.prototype, "messageEditor", void 0);
     AddonModForumNewDiscussionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-forum-new-discussion',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/new-discussion/new-discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.mod_forum.addanewdiscussion\' | translate }}</ion-title>\n        <ion-buttons end>\n            <!-- The context menu will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="groupsLoaded" (ionRefresh)="refreshGroups($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <core-loading [hideUntil]="groupsLoaded">\n        <form ion-list *ngIf="showForm" #newDiscFormEl>\n            <ion-item>\n                <ion-label stacked>{{ \'addon.mod_forum.subject\' | translate }}</ion-label>\n                <ion-input type="text" [placeholder]="\'addon.mod_forum.subject\' | translate" [(ngModel)]="newDiscussion.subject" name="subject"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked>{{ \'addon.mod_forum.message\' | translate }}</ion-label>\n                <core-rich-text-editor item-content [control]="messageControl" (contentChanged)="onMessageChange($event)" [placeholder]="\'addon.mod_forum.message\' | translate" name="addon_mod_forum_new_discussion" [component]="component" [componentId]="forum.cmid" [autoSave]="true" contextLevel="module" [contextInstanceId]="forum.cmid" elementId="message"></core-rich-text-editor>\n            </ion-item>\n            <ion-item-divider text-wrap (click)="toggleAdvanced()" class="core-expandable">\n                <core-icon *ngIf="!advanced" name="fa-caret-right" item-start></core-icon>\n                <core-icon *ngIf="advanced" name="fa-caret-down" item-start></core-icon>\n                {{ \'addon.mod_forum.advanced\' | translate }}\n            </ion-item-divider>\n            <ng-container *ngIf="advanced">\n                <ion-item *ngIf="showGroups && groupIds.length > 1 && accessInfo.cancanposttomygroups">\n                    <ion-label>{{ \'addon.mod_forum.posttomygroups\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.postToAllGroups" name="postallgroups"></ion-toggle>\n                </ion-item>\n                <ion-item *ngIf="showGroups">\n                    <ion-label id="addon-mod-forum-groupslabel">{{ \'addon.mod_forum.group\' | translate }}</ion-label>\n                    <ion-select [(ngModel)]="newDiscussion.groupId" [disabled]="newDiscussion.postToAllGroups" aria-labelledby="addon-mod-forum-groupslabel" interface="action-sheet" name="groupid">\n                        <ion-option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</ion-option>\n                    </ion-select>\n                </ion-item>\n                <ion-item>\n                    <ion-label>{{ \'addon.mod_forum.discussionsubscription\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.subscribe" name="subscribe"></ion-toggle>\n                </ion-item>\n                <ion-item *ngIf="canPin">\n                    <ion-label>{{ \'addon.mod_forum.discussionpinned\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.pin" name="pin"></ion-toggle>\n                </ion-item>\n                <core-attachments *ngIf="canCreateAttachments && forum && forum.maxattachments > 0" [files]="newDiscussion.files" [maxSize]="forum.maxbytes" [maxSubmissions]="forum.maxattachments" [component]="component" [componentId]="forum.cmid" [allowOffline]="true"></core-attachments>\n            </ng-container>\n            <ion-item>\n                <ion-row>\n                    <ion-col>\n                        <button ion-button block (click)="add()" [disabled]="newDiscussion.subject == \'\' || newDiscussion.message == null">{{ \'addon.mod_forum.posttoforum\' | translate }}</button>\n                    </ion-col>\n                    <ion-col *ngIf="hasOffline">\n                        <button ion-button block color="light" (click)="discard()">{{ \'core.discard\' | translate }}</button>\n                    </ion-col>\n                </ion-row>\n            </ion-item>\n        </form>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/new-discussion/new-discussion.html"*/,
+            selector: 'page-addon-mod-forum-new-discussion',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/new-discussion/new-discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.mod_forum.addanewdiscussion\' | translate }}</ion-title>\n        <ion-buttons end>\n            <!-- The context menu will be added in here. -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <ion-refresher [enabled]="groupsLoaded" (ionRefresh)="refreshGroups($event)">\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n    </ion-refresher>\n\n    <core-loading [hideUntil]="groupsLoaded">\n        <form ion-list *ngIf="showForm" #newDiscFormEl>\n            <ion-item>\n                <ion-label stacked>{{ \'addon.mod_forum.subject\' | translate }}</ion-label>\n                <ion-input type="text" [placeholder]="\'addon.mod_forum.subject\' | translate" [(ngModel)]="newDiscussion.subject" name="subject"></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label stacked>{{ \'addon.mod_forum.message\' | translate }}</ion-label>\n                <core-rich-text-editor item-content [control]="messageControl" (contentChanged)="onMessageChange($event)" [placeholder]="\'addon.mod_forum.message\' | translate" name="addon_mod_forum_new_discussion" [component]="component" [componentId]="forum.cmid" [autoSave]="true" contextLevel="module" [contextInstanceId]="forum.cmid" elementId="message"></core-rich-text-editor>\n            </ion-item>\n            <ion-item-divider text-wrap (click)="toggleAdvanced()" class="core-expandable">\n                <core-icon *ngIf="!advanced" name="fa-caret-right" item-start></core-icon>\n                <core-icon *ngIf="advanced" name="fa-caret-down" item-start></core-icon>\n                {{ \'addon.mod_forum.advanced\' | translate }}\n            </ion-item-divider>\n            <ng-container *ngIf="advanced">\n                <ion-item *ngIf="showGroups && groupIds.length > 1 && accessInfo.cancanposttomygroups">\n                    <ion-label>{{ \'addon.mod_forum.posttomygroups\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.postToAllGroups" name="postallgroups"></ion-toggle>\n                </ion-item>\n                <ion-item *ngIf="showGroups">\n                    <ion-label id="addon-mod-forum-groupslabel">{{ \'addon.mod_forum.group\' | translate }}</ion-label>\n                    <ion-select [(ngModel)]="newDiscussion.groupId" [disabled]="newDiscussion.postToAllGroups" aria-labelledby="addon-mod-forum-groupslabel" interface="action-sheet" name="groupid">\n                        <ion-option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</ion-option>\n                    </ion-select>\n                </ion-item>\n                <ion-item>\n                    <ion-label>{{ \'addon.mod_forum.discussionsubscription\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.subscribe" name="subscribe"></ion-toggle>\n                </ion-item>\n                <ion-item *ngIf="canPin">\n                    <ion-label>{{ \'addon.mod_forum.discussionpinned\' | translate }}</ion-label>\n                    <ion-toggle [(ngModel)]="newDiscussion.pin" name="pin"></ion-toggle>\n                </ion-item>\n                <core-attachments *ngIf="canCreateAttachments && forum && forum.maxattachments > 0" [files]="newDiscussion.files" [maxSize]="forum.maxbytes" [maxSubmissions]="forum.maxattachments" [component]="component" [componentId]="forum.cmid" [allowOffline]="true"></core-attachments>\n            </ng-container>\n            <ion-item>\n                <ion-row>\n                    <ion-col>\n                        <button ion-button block (click)="add()" [disabled]="newDiscussion.subject == \'\' || newDiscussion.message == null">{{ \'addon.mod_forum.posttoforum\' | translate }}</button>\n                    </ion-col>\n                    <ion-col *ngIf="hasOffline">\n                        <button ion-button block color="light" (click)="discard()">{{ \'core.discard\' | translate }}</button>\n                    </ion-col>\n                </ion-row>\n            </ion-item>\n        </form>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/new-discussion/new-discussion.html"*/,
         }),
-        __param(15, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __param(15, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Optional */])()),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["t" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["s" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */],
@@ -662,7 +667,7 @@ var AddonModForumNewDiscussionPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_5__providers_groups__["a" /* CoreGroupsProvider */],
             __WEBPACK_IMPORTED_MODULE_6__providers_sites__["b" /* CoreSitesProvider */],
             __WEBPACK_IMPORTED_MODULE_7__providers_sync__["a" /* CoreSyncProvider */],
-            __WEBPACK_IMPORTED_MODULE_11__core_fileuploader_providers_fileuploader__["a" /* CoreFileUploaderProvider */],
+            __WEBPACK_IMPORTED_MODULE_11__core_fileuploader_providers_fileuploader__["b" /* CoreFileUploaderProvider */],
             __WEBPACK_IMPORTED_MODULE_9__providers_utils_text__["b" /* CoreTextUtilsProvider */],
             __WEBPACK_IMPORTED_MODULE_10__providers_utils_utils__["b" /* CoreUtilsProvider */],
             __WEBPACK_IMPORTED_MODULE_14__providers_forum__["a" /* AddonModForumProvider */],

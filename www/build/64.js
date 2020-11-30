@@ -1,6 +1,6 @@
 webpackJsonp([64],{
 
-/***/ 2080:
+/***/ 2086:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12,7 +12,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__courses_storage__ = __webpack_require__(2241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__courses_storage__ = __webpack_require__(2247);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,7 +43,7 @@ var AddonStorageManagerCoursesStoragePageModule = /** @class */ (function () {
     function AddonStorageManagerCoursesStoragePageModule() {
     }
     AddonStorageManagerCoursesStoragePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__courses_storage__["a" /* AddonStorageManagerCoursesStoragePage */],
             ],
@@ -63,7 +63,7 @@ var AddonStorageManagerCoursesStoragePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2241:
+/***/ 2247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71,11 +71,11 @@ var AddonStorageManagerCoursesStoragePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_course_providers_course__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_courses_providers_courses__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__singletons_array__ = __webpack_require__(1024);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_course_providers_module_prefetch_delegate__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__singletons_array__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_course_providers_module_prefetch_delegate__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_constants__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_events__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_course_providers_helper__ = __webpack_require__(22);
 // (C) Copyright 2015 Moodle Pty Ltd.
@@ -210,7 +210,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showDeleteConfirm('core.course.confirmdeletemodulefiles')];
+                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showDeleteConfirm('core.course.confirmdeletestoreddata')];
                     case 1:
                         _a.sent();
                         return [3 /*break*/, 3];
@@ -233,7 +233,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
                         return [3 /*break*/, 8];
                     case 6:
                         error_2 = _a.sent();
-                        __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showErrorModalDefault(error_2, __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__["a" /* Translate */].instance.instant('core.errordeletefile'));
+                        __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showErrorModalDefault(error_2, __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__["c" /* Translate */].instance.instant('core.errordeletefile'));
                         return [3 /*break*/, 8];
                     case 7:
                         modal.dismiss();
@@ -255,7 +255,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showDeleteConfirm('core.course.confirmdeletemodulefiles')];
+                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showDeleteConfirm('core.course.confirmdeletestoreddata')];
                     case 1:
                         _a.sent();
                         return [3 /*break*/, 3];
@@ -277,7 +277,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
                         return [3 /*break*/, 8];
                     case 6:
                         error_4 = _a.sent();
-                        __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showErrorModalDefault(error_4, __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__["a" /* Translate */].instance.instant('core.errordeletefile'));
+                        __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtils */].instance.showErrorModalDefault(error_4, __WEBPACK_IMPORTED_MODULE_7__singletons_core_singletons__["c" /* Translate */].instance.instant('core.errordeletefile'));
                         return [3 /*break*/, 8];
                     case 7:
                         modal.dismiss();
@@ -369,7 +369,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
                             var size;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_4__core_course_providers_module_prefetch_delegate__["a" /* CoreCourseModulePrefetch */].instance.getModuleDownloadedSize(module, courseId)];
+                                    case 0: return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_4__core_course_providers_module_prefetch_delegate__["a" /* CoreCourseModulePrefetch */].instance.getModuleStoredSize(module, courseId)];
                                     case 1:
                                         size = _a.sent();
                                         return [2 /*return*/, isNaN(size) ? 0 : size];
@@ -386,7 +386,7 @@ var AddonStorageManagerCoursesStoragePage = /** @class */ (function () {
     };
     AddonStorageManagerCoursesStoragePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-storagemanager-courses-storage',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/storagemanager/pages/courses-storage/courses-storage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-card>\n            <ion-card-header>\n                <h1 text-wrap>{{ \'core.courses.courses\' | translate }}</h1>\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n                <ion-item no-padding padding-top class="size" text-wrap>\n                    <ion-icon name="cube" item-start></ion-icon>\n                    <h2 text-wrap>{{ \'addon.storagemanager.storageused\' | translate }}</h2>\n                    <div item-end>\n                        <p text-end>{{ totalSize | coreBytesToSize }}</p>\n                    </div>\n                    <button ion-button icon-only item-end no-padding (click)="deleteCompletelyDownloadedCourses()" [disabled]="completelyDownloadedCourses.length === 0">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourses\' | translate }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-card-header>\n        </ion-card>\n        <ion-card>\n            <ion-list>\n                <ion-item *ngFor="let course of downloadedCourses" class="course">\n                    <h2 text-wrap>{{ course.displayname }}</h2>\n                    <h3 *ngIf="course.isDownloading">{{ \'core.downloading\' | translate }}</h3>\n                    <p>\n                        <ion-icon name="cube" item-start></ion-icon>\n                        {{ course.totalSize | coreBytesToSize }}\n                    </p>\n                    <button ion-button icon-only item-end (click)="deleteCourse(course)" [disabled]="course.isDownloading">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: course.name } }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-list>\n        </ion-card>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/storagemanager/pages/courses-storage/courses-storage.html"*/,
+            selector: 'page-addon-storagemanager-courses-storage',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/storagemanager/pages/courses-storage/courses-storage.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <core-loading [hideUntil]="loaded">\n        <ion-card>\n            <ion-card-header>\n                <h1 text-wrap>{{ \'core.courses.courses\' | translate }}</h1>\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n                <ion-item no-padding padding-top class="size" text-wrap>\n                    <ion-icon name="cube" item-start></ion-icon>\n                    <h2 text-wrap>{{ \'addon.storagemanager.storageused\' | translate }}</h2>\n                    <div item-end>\n                        <p text-end>{{ totalSize | coreBytesToSize }}</p>\n                    </div>\n                    <button ion-button icon-only item-end no-padding (click)="deleteCompletelyDownloadedCourses()" [disabled]="completelyDownloadedCourses.length === 0">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourses\' | translate }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-card-header>\n        </ion-card>\n        <ion-card>\n            <ion-list>\n                <ion-item *ngFor="let course of downloadedCourses" class="course">\n                    <h2 text-wrap>\n                        <span *ngIf="course.displayname">{{ course.displayname }}</span>\n                        <span *ngIf="!course.displayname">{{ course.fullname }}</span>\n                    </h2>\n                    <h3 *ngIf="course.isDownloading">{{ \'core.downloading\' | translate }}</h3>\n                    <p>\n                        <ion-icon name="cube" item-start></ion-icon>\n                        {{ course.totalSize | coreBytesToSize }}\n                    </p>\n                    <button ion-button icon-only item-end (click)="deleteCourse(course)" [disabled]="course.isDownloading">\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: course.name } }}"></core-icon>\n                    </button>\n                </ion-item>\n            </ion-list>\n        </ion-card>\n    </core-loading>\n</ion-content>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/storagemanager/pages/courses-storage/courses-storage.html"*/,
         })
     ], AddonStorageManagerCoursesStoragePage);
     return AddonStorageManagerCoursesStoragePage;

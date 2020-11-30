@@ -1,6 +1,6 @@
 webpackJsonp([130],{
 
-/***/ 2007:
+/***/ 2013:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__discussion__ = __webpack_require__(2163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__discussion__ = __webpack_require__(2169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(66);
@@ -43,7 +43,7 @@ var AddonMessagesDiscussionPageModule = /** @class */ (function () {
     function AddonMessagesDiscussionPageModule() {
     }
     AddonMessagesDiscussionPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__discussion__["a" /* AddonMessagesDiscussionPage */],
             ],
@@ -63,7 +63,7 @@ var AddonMessagesDiscussionPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2163:
+/***/ 2169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73,21 +73,21 @@ var AddonMessagesDiscussionPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_messages__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_messages_offline__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_sync__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_user_providers_user__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_messages__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_messages_offline__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_sync__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_user_providers_user__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_utils_utils__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_utils_text__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_logger__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__classes_animations__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_app__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__classes_animations__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_split_view_split_view__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_infinite_loading_infinite_loading__ = __webpack_require__(1016);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ts_md5_dist_md5__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_infinite_loading_infinite_loading__ = __webpack_require__(1021);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ts_md5_dist_md5__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ts_md5_dist_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ts_md5_dist_md5__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_moment__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_moment__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_moment__);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
@@ -113,6 +113,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
 };
 
 
@@ -604,29 +639,39 @@ var AddonMessagesDiscussionPage = /** @class */ (function () {
      * @return Promise resolved with the list of messages.
      */
     AddonMessagesDiscussionPage.prototype.getConversationMessages = function (pagesToLoad, offset) {
-        var _this = this;
         if (offset === void 0) { offset = 0; }
-        var excludePending = offset > 0;
-        return this.messagesProvider.getConversationMessages(this.conversationId, excludePending, offset).then(function (result) {
-            pagesToLoad--;
-            // Treat members. Don't use CoreUtilsProvider.arrayToObject because we don't want to override the existing object.
-            if (result.members) {
-                result.members.forEach(function (member) {
-                    _this.members[member.id] = member;
-                });
-            }
-            if (pagesToLoad > 0 && result.canLoadMore) {
-                offset += __WEBPACK_IMPORTED_MODULE_5__providers_messages__["a" /* AddonMessagesProvider */].LIMIT_MESSAGES;
-                // Get more messages.
-                return _this.getConversationMessages(pagesToLoad, offset).then(function (nextMessages) {
-                    return result.messages.concat(nextMessages);
-                });
-            }
-            else {
-                // No more messages to load, return them.
-                _this.canLoadMore = result.canLoadMore;
-                return result.messages;
-            }
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var excludePending, result, nextMessages;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        excludePending = offset > 0;
+                        return [4 /*yield*/, this.messagesProvider.getConversationMessages(this.conversationId, {
+                                excludePending: excludePending,
+                                limitFrom: offset,
+                            })];
+                    case 1:
+                        result = _a.sent();
+                        pagesToLoad--;
+                        // Treat members. Don't use CoreUtilsProvider.arrayToObject because we don't want to override the existing object.
+                        if (result.members) {
+                            result.members.forEach(function (member) {
+                                _this.members[member.id] = member;
+                            });
+                        }
+                        if (!(pagesToLoad > 0 && result.canLoadMore)) return [3 /*break*/, 3];
+                        offset += __WEBPACK_IMPORTED_MODULE_5__providers_messages__["a" /* AddonMessagesProvider */].LIMIT_MESSAGES;
+                        return [4 /*yield*/, this.getConversationMessages(pagesToLoad, offset)];
+                    case 2:
+                        nextMessages = _a.sent();
+                        return [2 /*return*/, result.messages.concat(nextMessages)];
+                    case 3:
+                        // No more messages to load, return them.
+                        this.canLoadMore = result.canLoadMore;
+                        return [2 /*return*/, result.messages];
+                }
+            });
         });
     };
     /**
@@ -1466,19 +1511,19 @@ var AddonMessagesDiscussionPage = /** @class */ (function () {
         this.viewDestroyed = true;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
     ], AddonMessagesDiscussionPage.prototype, "content", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_16__components_infinite_loading_infinite_loading__["a" /* CoreInfiniteLoadingComponent */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_16__components_infinite_loading_infinite_loading__["a" /* CoreInfiniteLoadingComponent */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_16__components_infinite_loading_infinite_loading__["a" /* CoreInfiniteLoadingComponent */])
     ], AddonMessagesDiscussionPage.prototype, "infinite", void 0);
     AddonMessagesDiscussionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-messages-discussion',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/messages/pages/discussion/discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>\n            <img *ngIf="loaded && !otherMember && conversationImage" class="core-bar-button-image" [src]="conversationImage" [alt]="title" onError="this.src=\'assets/img/group-avatar.png\'" core-external-content role="presentation" [siteId]="siteId || null">\n            <ion-avatar *ngIf="loaded && otherMember" class="core-bar-button-image" core-user-avatar [user]="otherMember" [linkProfile]="false" [checkOnline]="otherMember.showonlinestatus" item-start (click)="showInfo && viewInfo()"></ion-avatar>\n            <core-format-text [text]="title" contextLevel="system" [contextInstanceId]="0" (click)="showInfo && !isGroup && viewInfo()"></core-format-text>\n            <core-icon *ngIf="conversation && conversation.isfavourite" name="fa-star" [label]="\'core.favourites\' | translate"></core-icon>\n            <core-icon *ngIf="conversation && conversation.ismuted" name="volume-off" [label]="\'addon.messages.mutedconversation\' | translate"></core-icon>\n        </ion-title>\n        <ion-buttons end></ion-buttons>\n    </ion-navbar>\n    <core-navbar-buttons end>\n        <core-context-menu [aria-label]="\'addon.messages.conversationactions\' | translate">\n            <core-context-menu-item [hidden]="isSelf || !showInfo || isGroup" [priority]="1000" [content]="\'addon.messages.info\' | translate" (action)="viewInfo()" iconAction="information-circle"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !showInfo || !isGroup" [priority]="1000" [content]="\'addon.messages.groupinfo\' | translate" (action)="viewInfo()" iconAction="information-circle"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!groupMessagingEnabled || !conversation" [priority]="800" [content]="(conversation && conversation.isfavourite ? \'addon.messages.removefromfavourites\' : \'addon.messages.addtofavourites\') | translate" (action)="changeFavourite($event)" [closeOnClick]="false" [iconAction]="favouriteIcon" [iconSlash]="favouriteIconSlash"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || otherMember.isblocked" [priority]="700" [content]="\'addon.messages.blockuser\' | translate" (action)="blockUser()" [iconAction]="blockIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || !otherMember.isblocked" [priority]="700" [content]="\'addon.messages.unblockuser\' | translate" (action)="unblockUser()" [iconAction]="blockIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !muteEnabled || !conversation" [priority]="600" [content]="(conversation && conversation.ismuted ? \'addon.messages.unmuteconversation\' : \'addon.messages.muteconversation\') | translate" (action)="changeMute($event)" [closeOnClick]="false" [iconAction]="muteIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!canDelete || !messages || !messages.length" [priority]="400" [content]="\'addon.messages.showdeletemessages\' | translate" (action)="toggleDelete()" [iconAction]="(showDelete ? \'checkbox-outline\' : \'square-outline\')"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!groupMessagingEnabled || !conversationId || isGroup || !messages || !messages.length" [priority]="200" [content]="\'addon.messages.deleteconversation\' | translate" (action)="deleteConversation($event)" [closeOnClick]="false" [iconAction]="deleteIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || otherMember.iscontact || requestContactSent || requestContactReceived" [priority]="100" [content]="\'addon.messages.addtoyourcontacts\' | translate" (action)="createContactRequest()" [iconAction]="addRemoveIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || !otherMember.iscontact" [priority]="100" [content]="\'addon.messages.removefromyourcontacts\' | translate" (action)="removeContact()" [iconAction]="addRemoveIcon" [iconSlash]="true"></core-context-menu-item>\n        </core-context-menu>\n    </core-navbar-buttons>\n</ion-header>\n<ion-content class="has-footer">\n    <core-loading [hideUntil]="loaded" class="safe-area-page">\n        <!-- Load previous messages. -->\n        <core-infinite-loading [enabled]="canLoadMore" (action)="loadPrevious($event)" position="top" [error]="loadMoreError"></core-infinite-loading>\n\n        <ng-container *ngIf="isSelf && !canLoadMore">\n            <p text-center>{{ \'addon.messages.selfconversation\' | translate }}</p>\n            <p text-center><i>{{ \'addon.messages.selfconversationdefaultmessage\' | translate }}</i></p>\n        </ng-container>\n\n        <ion-list class="addon-messages-discussion-container" [class.addon-messages-discussion-group]="isGroup" [attr.aria-live]="\'polite\'">\n            <ng-container *ngFor="let message of messages; index as index; last as last">\n                <h6 text-center *ngIf="message.showDate" class="addon-messages-date">\n                    {{ message.timecreated | coreFormatDate: "strftimedayshort" }}\n                </h6>\n\n                <ion-chip class="addon-messages-unreadfrom" *ngIf="unreadMessageFrom && message.id == unreadMessageFrom" color="light">\n                    <ion-label>{{ \'addon.messages.newmessages\' | translate }}</ion-label>\n                    <ion-icon name="arrow-round-down"></ion-icon>\n                </ion-chip>\n\n                <ion-item text-wrap (longPress)="copyMessage(message)" class="addon-message" [class.addon-message-mine]="message.useridfrom == currentUserId" [class.addon-message-not-mine]="message.useridfrom != currentUserId" [class.addon-message-no-user]="!message.showUserData" [@coreSlideInOut]="message.useridfrom == currentUserId ? \'\' : \'fromLeft\'">\n                    <!-- User data. -->\n                    <h2 class="addon-message-user">\n                        <ion-avatar item-start core-user-avatar [user]="members[message.useridfrom]" [linkProfile]="false" *ngIf="message.showUserData"></ion-avatar>\n\n                        <div *ngIf="message.showUserData">{{ members[message.useridfrom].fullname }}</div>\n\n                        <ion-note *ngIf="!message.pending">{{ message.timecreated | coreFormatDate: "strftimetime" }}</ion-note>\n                        <ion-note *ngIf="message.pending"><ion-icon name="time"></ion-icon></ion-note>\n                    </h2>\n\n                    <!-- Some messages have <p> and some others don\'t. Add a <p> so they all have same styles. -->\n                    <p class="addon-message-text">\n                        <core-format-text (afterRender)="last && scrollToBottom()" [text]="message.text" contextLevel="system" [contextInstanceId]="0"></core-format-text>\n                    </p>\n\n                    <button ion-button icon-only clear="true" *ngIf="!message.sending && showDelete" (click)="deleteMessage(message, index)" class="addon-messages-delete-button" [@coreSlideInOut]="\'fromRight\'" [attr.aria-label]=" \'addon.messages.deletemessage\' | translate">\n                        <ion-icon name="trash" color="danger"></ion-icon>\n                    </button>\n                    <div class="tail" *ngIf="message.showTail"></div>\n                </ion-item>\n            </ng-container>\n        </ion-list>\n        <!-- Scroll bottom. -->\n        <ion-fab core-fab bottom end *ngIf="newMessages > 0">\n            <button ion-fab mini (click)="scrollToFirstUnreadMessage(true)" color="light" [attr.aria-label]="\'addon.messages.newmessages\' | translate">\n                <ion-icon name="arrow-round-down"></ion-icon>\n                <span class="core-discussion-messages-badge">{{ newMessages }}</span>\n            </button>\n        </ion-fab>\n        <core-empty-box *ngIf="!messages || messages.length <= 0" icon="chatbubbles" [message]="\'addon.messages.nomessagesfound\' | translate"></core-empty-box>\n    </core-loading>\n</ion-content>\n<ion-footer color="light" class="footer-adjustable" *ngIf="loaded && (!conversationId || conversation)">\n    <ion-toolbar color="light" position="bottom">\n        <p *ngIf="footerType == \'unable\'" text-center margin-horizontal>{{ \'addon.messages.unabletomessage\' | translate }}</p>\n        <div *ngIf="footerType == \'blocked\'" padding-horizontal>\n            <p text-center>{{ \'addon.messages.youhaveblockeduser\' | translate }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="unblockUser()">{{ \'addon.messages.unblockuser\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requiresContact\'" padding-horizontal>\n            <p text-center><strong>{{ \'addon.messages.isnotinyourcontacts\' | translate: {$a: otherMember.fullname} }}</strong></p>\n            <p text-center>{{ \'addon.messages.requirecontacttomessage\' | translate: {$a: otherMember.fullname} }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="createContactRequest()">{{ \'addon.messages.sendcontactrequest\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requestReceived\'" padding-horizontal>\n            <p text-center>{{ \'addon.messages.userwouldliketocontactyou\' | translate: {$a: otherMember.fullname} }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="confirmContactRequest()">{{ \'addon.messages.acceptandaddcontact\' | translate }}</button>\n            <button ion-button block text-wrap margin-bottom color="light" (click)="declineContactRequest()">{{ \'addon.messages.decline\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requestSent\' || (footerType == \'message\' && requestContactSent)" padding-horizontal>\n            <p text-center><strong>{{ \'addon.messages.contactrequestsent\' | translate }}</strong></p>\n            <p text-center>{{ \'addon.messages.yourcontactrequestpending\' | translate: {$a: otherMember.fullname} }}</p>\n        </div>\n        <core-send-message-form *ngIf="footerType == \'message\'" (onSubmit)="sendMessage($event)" [showKeyboard]="showKeyboard" [placeholder]="\'addon.messages.newmessage\' | translate" (onResize)="resizeContent()"></core-send-message-form>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/messages/pages/discussion/discussion.html"*/,
+            selector: 'page-addon-messages-discussion',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/messages/pages/discussion/discussion.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>\n            <img *ngIf="loaded && !otherMember && conversationImage" class="core-bar-button-image" [src]="conversationImage" [alt]="title" onError="this.src=\'assets/img/group-avatar.png\'" core-external-content role="presentation" [siteId]="siteId || null">\n            <ion-avatar *ngIf="loaded && otherMember" class="core-bar-button-image" core-user-avatar [user]="otherMember" [linkProfile]="false" [checkOnline]="otherMember.showonlinestatus" item-start (click)="showInfo && viewInfo()"></ion-avatar>\n            <core-format-text [text]="title" contextLevel="system" [contextInstanceId]="0" (click)="showInfo && !isGroup && viewInfo()"></core-format-text>\n            <core-icon *ngIf="conversation && conversation.isfavourite" name="fa-star" [label]="\'core.favourites\' | translate"></core-icon>\n            <core-icon *ngIf="conversation && conversation.ismuted" name="volume-off" [label]="\'addon.messages.mutedconversation\' | translate"></core-icon>\n        </ion-title>\n        <ion-buttons end></ion-buttons>\n    </ion-navbar>\n    <core-navbar-buttons end>\n        <core-context-menu [aria-label]="\'addon.messages.conversationactions\' | translate">\n            <core-context-menu-item [hidden]="isSelf || !showInfo || isGroup" [priority]="1000" [content]="\'addon.messages.info\' | translate" (action)="viewInfo()" iconAction="information-circle"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !showInfo || !isGroup" [priority]="1000" [content]="\'addon.messages.groupinfo\' | translate" (action)="viewInfo()" iconAction="information-circle"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!groupMessagingEnabled || !conversation" [priority]="800" [content]="(conversation && conversation.isfavourite ? \'addon.messages.removefromfavourites\' : \'addon.messages.addtofavourites\') | translate" (action)="changeFavourite($event)" [closeOnClick]="false" [iconAction]="favouriteIcon" [iconSlash]="favouriteIconSlash"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || otherMember.isblocked" [priority]="700" [content]="\'addon.messages.blockuser\' | translate" (action)="blockUser()" [iconAction]="blockIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || !otherMember.isblocked" [priority]="700" [content]="\'addon.messages.unblockuser\' | translate" (action)="unblockUser()" [iconAction]="blockIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !muteEnabled || !conversation" [priority]="600" [content]="(conversation && conversation.ismuted ? \'addon.messages.unmuteconversation\' : \'addon.messages.muteconversation\') | translate" (action)="changeMute($event)" [closeOnClick]="false" [iconAction]="muteIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!canDelete || !messages || !messages.length" [priority]="400" [content]="\'addon.messages.showdeletemessages\' | translate" (action)="toggleDelete()" [iconAction]="(showDelete ? \'checkbox-outline\' : \'square-outline\')"></core-context-menu-item>\n            <core-context-menu-item [hidden]="!groupMessagingEnabled || !conversationId || isGroup || !messages || !messages.length" [priority]="200" [content]="\'addon.messages.deleteconversation\' | translate" (action)="deleteConversation($event)" [closeOnClick]="false" [iconAction]="deleteIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || otherMember.iscontact || requestContactSent || requestContactReceived" [priority]="100" [content]="\'addon.messages.addtoyourcontacts\' | translate" (action)="createContactRequest()" [iconAction]="addRemoveIcon"></core-context-menu-item>\n            <core-context-menu-item [hidden]="isSelf || !otherMember || !otherMember.iscontact" [priority]="100" [content]="\'addon.messages.removefromyourcontacts\' | translate" (action)="removeContact()" [iconAction]="addRemoveIcon" [iconSlash]="true"></core-context-menu-item>\n        </core-context-menu>\n    </core-navbar-buttons>\n</ion-header>\n<ion-content class="has-footer">\n    <core-loading [hideUntil]="loaded" class="safe-area-page">\n        <!-- Load previous messages. -->\n        <core-infinite-loading [enabled]="canLoadMore" (action)="loadPrevious($event)" position="top" [error]="loadMoreError"></core-infinite-loading>\n\n        <ng-container *ngIf="isSelf && !canLoadMore">\n            <p text-center>{{ \'addon.messages.selfconversation\' | translate }}</p>\n            <p text-center><i>{{ \'addon.messages.selfconversationdefaultmessage\' | translate }}</i></p>\n        </ng-container>\n\n        <ion-list class="addon-messages-discussion-container" [class.addon-messages-discussion-group]="isGroup" [attr.aria-live]="\'polite\'">\n            <ng-container *ngFor="let message of messages; index as index; last as last">\n                <h6 text-center *ngIf="message.showDate" class="addon-messages-date">\n                    {{ message.timecreated | coreFormatDate: "strftimedayshort" }}\n                </h6>\n\n                <ion-chip class="addon-messages-unreadfrom" *ngIf="unreadMessageFrom && message.id == unreadMessageFrom" color="light">\n                    <ion-label>{{ \'addon.messages.newmessages\' | translate }}</ion-label>\n                    <ion-icon name="arrow-round-down"></ion-icon>\n                </ion-chip>\n\n                <ion-item text-wrap (longPress)="copyMessage(message)" class="addon-message" [class.addon-message-mine]="message.useridfrom == currentUserId" [class.addon-message-not-mine]="message.useridfrom != currentUserId" [class.addon-message-no-user]="!message.showUserData" [@coreSlideInOut]="message.useridfrom == currentUserId ? \'\' : \'fromLeft\'">\n                    <!-- User data. -->\n                    <h2 class="addon-message-user">\n                        <ion-avatar item-start core-user-avatar [user]="members[message.useridfrom]" [linkProfile]="false" *ngIf="message.showUserData"></ion-avatar>\n\n                        <div *ngIf="message.showUserData">{{ members[message.useridfrom].fullname }}</div>\n\n                        <ion-note *ngIf="!message.pending">{{ message.timecreated | coreFormatDate: "strftimetime" }}</ion-note>\n                        <ion-note *ngIf="message.pending"><ion-icon name="time"></ion-icon></ion-note>\n                    </h2>\n\n                    <!-- Some messages have <p> and some others don\'t. Add a <p> so they all have same styles. -->\n                    <p class="addon-message-text">\n                        <core-format-text (afterRender)="last && scrollToBottom()" [text]="message.text" contextLevel="system" [contextInstanceId]="0"></core-format-text>\n                    </p>\n\n                    <button ion-button icon-only clear="true" *ngIf="!message.sending && showDelete" (click)="deleteMessage(message, index)" class="addon-messages-delete-button" [@coreSlideInOut]="\'fromRight\'" [attr.aria-label]=" \'addon.messages.deletemessage\' | translate">\n                        <ion-icon name="trash" color="danger"></ion-icon>\n                    </button>\n                    <div class="tail" *ngIf="message.showTail"></div>\n                </ion-item>\n            </ng-container>\n        </ion-list>\n        <!-- Scroll bottom. -->\n        <ion-fab core-fab bottom end *ngIf="newMessages > 0">\n            <button ion-fab mini (click)="scrollToFirstUnreadMessage(true)" color="light" [attr.aria-label]="\'addon.messages.newmessages\' | translate">\n                <ion-icon name="arrow-round-down"></ion-icon>\n                <span class="core-discussion-messages-badge">{{ newMessages }}</span>\n            </button>\n        </ion-fab>\n        <core-empty-box *ngIf="!messages || messages.length <= 0" icon="chatbubbles" [message]="\'addon.messages.nomessagesfound\' | translate"></core-empty-box>\n    </core-loading>\n</ion-content>\n<ion-footer color="light" class="footer-adjustable" *ngIf="loaded && (!conversationId || conversation)">\n    <ion-toolbar color="light" position="bottom">\n        <p *ngIf="footerType == \'unable\'" text-center margin-horizontal>{{ \'addon.messages.unabletomessage\' | translate }}</p>\n        <div *ngIf="footerType == \'blocked\'" padding-horizontal>\n            <p text-center>{{ \'addon.messages.youhaveblockeduser\' | translate }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="unblockUser()">{{ \'addon.messages.unblockuser\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requiresContact\'" padding-horizontal>\n            <p text-center><strong>{{ \'addon.messages.isnotinyourcontacts\' | translate: {$a: otherMember.fullname} }}</strong></p>\n            <p text-center>{{ \'addon.messages.requirecontacttomessage\' | translate: {$a: otherMember.fullname} }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="createContactRequest()">{{ \'addon.messages.sendcontactrequest\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requestReceived\'" padding-horizontal>\n            <p text-center>{{ \'addon.messages.userwouldliketocontactyou\' | translate: {$a: otherMember.fullname} }}</p>\n            <button ion-button block text-wrap margin-bottom (click)="confirmContactRequest()">{{ \'addon.messages.acceptandaddcontact\' | translate }}</button>\n            <button ion-button block text-wrap margin-bottom color="light" (click)="declineContactRequest()">{{ \'addon.messages.decline\' | translate }}</button>\n        </div>\n        <div *ngIf="footerType == \'requestSent\' || (footerType == \'message\' && requestContactSent)" padding-horizontal>\n            <p text-center><strong>{{ \'addon.messages.contactrequestsent\' | translate }}</strong></p>\n            <p text-center>{{ \'addon.messages.yourcontactrequestpending\' | translate: {$a: otherMember.fullname} }}</p>\n        </div>\n        <core-send-message-form *ngIf="footerType == \'message\'" (onSubmit)="sendMessage($event)" [showKeyboard]="showKeyboard" [placeholder]="\'addon.messages.newmessage\' | translate" (onResize)="resizeContent()"></core-send-message-form>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/messages/pages/discussion/discussion.html"*/,
             animations: [__WEBPACK_IMPORTED_MODULE_14__classes_animations__["b" /* coreSlideInOut */]]
         }),
-        __param(12, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __param(12, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Optional */])()),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_events__["b" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_sites__["b" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_8__core_user_providers_user__["b" /* CoreUserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_7__providers_sync__["a" /* AddonMessagesSyncProvider */],
             __WEBPACK_IMPORTED_MODULE_9__providers_utils_dom__["b" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_messages__["a" /* AddonMessagesProvider */], __WEBPACK_IMPORTED_MODULE_12__providers_logger__["b" /* CoreLoggerProvider */],

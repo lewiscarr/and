@@ -1,6 +1,6 @@
 webpackJsonp([104],{
 
-/***/ 2038:
+/***/ 2041:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,9 +11,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(1002);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__edit_post__ = __webpack_require__(2194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_editor_components_components_module__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(1007);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__edit_post__ = __webpack_require__(2197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_editor_components_components_module__ = __webpack_require__(130);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -45,7 +45,7 @@ var AddonModForumEditPostPageModule = /** @class */ (function () {
     function AddonModForumEditPostPageModule() {
     }
     AddonModForumEditPostPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__edit_post__["a" /* AddonModForumEditPostPage */],
             ],
@@ -66,19 +66,19 @@ var AddonModForumEditPostPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2194:
+/***/ 2197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModForumEditPostPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_fileuploader_providers_fileuploader__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_fileuploader_providers_fileuploader__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_forum__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_forum__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_helper__ = __webpack_require__(233);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
@@ -211,18 +211,18 @@ var AddonModForumEditPostPage = /** @class */ (function () {
         this.advanced = !this.advanced;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('editFormEl'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])('editFormEl'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], AddonModForumEditPostPage.prototype, "formElement", void 0);
     AddonModForumEditPostPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'addon-mod-forum-edit-post',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/edit-post/addon-mod-forum-edit-post.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.mod_forum.yourreply\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <form ion-list #editFormEl>\n        <ion-item>\n            <ion-label stacked>{{ \'addon.mod_forum.subject\' | translate }}</ion-label>\n            <ion-input type="text" [placeholder]="\'addon.mod_forum.subject\' | translate" [(ngModel)]="replyData.subject" name="subject"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>{{ \'addon.mod_forum.message\' | translate }}</ion-label>\n            <core-rich-text-editor item-content [control]="messageControl" (contentChanged)="onMessageChange($event)" [placeholder]="\'addon.mod_forum.replyplaceholder\' | translate" [name]="\'mod_forum_reply_\' + replyData.id" [component]="component" [componentId]="componentId" [autoSave]="true" contextLevel="module" [contextInstanceId]="forum.cmid" elementId="message" [draftExtraParams]="{edit: replyData.id}"></core-rich-text-editor>\n        </ion-item>\n        <ion-item-divider text-wrap (click)="toggleAdvanced()" class="core-expandable">\n            <core-icon *ngIf="!advanced" name="fa-caret-right" item-start></core-icon>\n            <core-icon *ngIf="advanced" name="fa-caret-down" item-start></core-icon>\n            {{ \'addon.mod_forum.advanced\' | translate }}\n        </ion-item-divider>\n        <ng-container *ngIf="advanced">\n            <core-attachments *ngIf="forum.id && forum.maxattachments > 0" [files]="replyData.files" [maxSize]="forum.maxbytes" [maxSubmissions]="forum.maxattachments" [component]="component" [componentId]="forum.cmid" [allowOffline]="true"></core-attachments>\n        </ng-container>\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <button ion-button block (click)="reply($event)" [disabled]="replyData.subject == \'\' || replyData.message == null">{{ \'core.savechanges\' | translate }}</button>\n                </ion-col>\n                <ion-col>\n                    <button ion-button block color="light" (click)="closeModal()">{{ \'core.cancel\' | translate }}</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/mod/forum/pages/edit-post/addon-mod-forum-edit-post.html"*/,
+            selector: 'addon-mod-forum-edit-post',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/edit-post/addon-mod-forum-edit-post.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title>{{ \'addon.mod_forum.yourreply\' | translate }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n                <ion-icon name="close"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content>\n    <form ion-list #editFormEl>\n        <ion-item>\n            <ion-label stacked>{{ \'addon.mod_forum.subject\' | translate }}</ion-label>\n            <ion-input type="text" [placeholder]="\'addon.mod_forum.subject\' | translate" [(ngModel)]="replyData.subject" name="subject"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>{{ \'addon.mod_forum.message\' | translate }}</ion-label>\n            <core-rich-text-editor item-content [control]="messageControl" (contentChanged)="onMessageChange($event)" [placeholder]="\'addon.mod_forum.replyplaceholder\' | translate" [name]="\'mod_forum_reply_\' + replyData.id" [component]="component" [componentId]="componentId" [autoSave]="true" contextLevel="module" [contextInstanceId]="forum.cmid" elementId="message" [draftExtraParams]="{edit: replyData.id}"></core-rich-text-editor>\n        </ion-item>\n        <ion-item-divider text-wrap (click)="toggleAdvanced()" class="core-expandable">\n            <core-icon *ngIf="!advanced" name="fa-caret-right" item-start></core-icon>\n            <core-icon *ngIf="advanced" name="fa-caret-down" item-start></core-icon>\n            {{ \'addon.mod_forum.advanced\' | translate }}\n        </ion-item-divider>\n        <ng-container *ngIf="advanced">\n            <core-attachments *ngIf="forum.id && forum.maxattachments > 0" [files]="replyData.files" [maxSize]="forum.maxbytes" [maxSubmissions]="forum.maxattachments" [component]="component" [componentId]="forum.cmid" [allowOffline]="true"></core-attachments>\n        </ng-container>\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <button ion-button block (click)="reply($event)" [disabled]="replyData.subject == \'\' || replyData.message == null">{{ \'core.savechanges\' | translate }}</button>\n                </ion-col>\n                <ion-col>\n                    <button ion-button block color="light" (click)="closeModal()">{{ \'core.cancel\' | translate }}</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/mod/forum/pages/edit-post/addon-mod-forum-edit-post.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["t" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_7__providers_forum__["a" /* AddonModForumProvider */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["G" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["b" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__core_fileuploader_providers_fileuploader__["a" /* CoreFileUploaderProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__core_fileuploader_providers_fileuploader__["b" /* CoreFileUploaderProvider */],
             __WEBPACK_IMPORTED_MODULE_8__providers_helper__["a" /* AddonModForumHelperProvider */],
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */],
             __WEBPACK_IMPORTED_MODULE_5__providers_sites__["b" /* CoreSitesProvider */]])

@@ -1,6 +1,6 @@
 webpackJsonp([125],{
 
-/***/ 2015:
+/***/ 2021:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11,7 +11,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submission_list__ = __webpack_require__(2171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submission_list__ = __webpack_require__(2177);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,7 +41,7 @@ var AddonModAssignSubmissionListPageModule = /** @class */ (function () {
     function AddonModAssignSubmissionListPageModule() {
     }
     AddonModAssignSubmissionListPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__submission_list__["a" /* AddonModAssignSubmissionListPage */],
             ],
@@ -60,7 +60,7 @@ var AddonModAssignSubmissionListPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 2171:
+/***/ 2177:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72,10 +72,11 @@ var AddonModAssignSubmissionListPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_groups__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_assign__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_assign_offline__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_helper__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_split_view_split_view__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_assign__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_assign_offline__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_assign_sync__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_helper__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_split_view_split_view__ = __webpack_require__(81);
 // (C) Copyright 2015 Moodle Pty Ltd.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -98,6 +99,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
 
 
 
@@ -116,6 +153,7 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
     function AddonModAssignSubmissionListPage(navParams, sitesProvider, eventsProvider, domUtils, translate, assignProvider, assignOfflineProvider, assignHelper, groupsProvider) {
         var _this = this;
         this.sitesProvider = sitesProvider;
+        this.eventsProvider = eventsProvider;
         this.domUtils = domUtils;
         this.translate = translate;
         this.assignProvider = assignProvider;
@@ -145,21 +183,33 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
         }
         // Update data if some grade changes.
         this.gradedObserver = eventsProvider.on(__WEBPACK_IMPORTED_MODULE_7__providers_assign__["a" /* AddonModAssignProvider */].GRADED_EVENT, function (data) {
-            if (_this.assign && data.assignmentId == _this.assign.id && data.userId == sitesProvider.getCurrentSiteUserId()) {
+            if (_this.loaded && _this.assign && data.assignmentId == _this.assign.id &&
+                data.userId == sitesProvider.getCurrentSiteUserId()) {
                 // Grade changed, refresh the data.
                 _this.loaded = false;
-                _this.refreshAllData().finally(function () {
+                _this.refreshAllData(true).finally(function () {
                     _this.loaded = true;
                 });
             }
         }, sitesProvider.getCurrentSiteId());
+        // Refresh data if this assign is synchronized.
+        var events = [__WEBPACK_IMPORTED_MODULE_9__providers_assign_sync__["b" /* AddonModAssignSyncProvider */].AUTO_SYNCED, __WEBPACK_IMPORTED_MODULE_9__providers_assign_sync__["b" /* AddonModAssignSyncProvider */].MANUAL_SYNCED];
+        this.syncObserver = eventsProvider.onMultiple(events, function (data) {
+            if (!_this.loaded || data.context == 'submission-list') {
+                return;
+            }
+            _this.loaded = false;
+            _this.refreshAllData(false).finally(function () {
+                _this.loaded = true;
+            });
+        }, this.sitesProvider.getCurrentSiteId());
     }
     /**
      * Component being initialized.
      */
     AddonModAssignSubmissionListPage.prototype.ngOnInit = function () {
         var _this = this;
-        this.fetchAssignment().finally(function () {
+        this.fetchAssignment(true).finally(function () {
             if (!_this.selectedSubmissionId && _this.splitviewCtrl.isOn() && _this.submissions.length > 0) {
                 // Take first and load it.
                 _this.loadSubmission(_this.submissions[0]);
@@ -170,29 +220,70 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
     /**
      * Fetch assignment data.
      *
+     * @param sync Whether to try to synchronize data.
      * @return Promise resolved when done.
      */
-    AddonModAssignSubmissionListPage.prototype.fetchAssignment = function () {
-        var _this = this;
-        // Get assignment data.
-        return this.assignProvider.getAssignment(this.courseId, this.moduleId).then(function (assign) {
-            _this.title = assign.name || _this.title;
-            _this.assign = assign;
-            // Get assignment submissions.
-            return _this.assignProvider.getSubmissions(assign.id);
-        }).then(function (data) {
-            if (!data.canviewsubmissions) {
-                // User shouldn't be able to reach here.
-                return Promise.reject(null);
-            }
-            _this.submissionsData = data;
-            // Check if groupmode is enabled to avoid showing wrong numbers.
-            return _this.groupsProvider.getActivityGroupInfo(_this.assign.cmid, false).then(function (groupInfo) {
-                _this.groupInfo = groupInfo;
-                return _this.setGroup(_this.groupsProvider.validateGroupId(_this.groupId, groupInfo));
+    AddonModAssignSubmissionListPage.prototype.fetchAssignment = function (sync) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, result, error_1, _b, _c, error_2;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _d.trys.push([0, 9, , 10]);
+                        // Get assignment data.
+                        _a = this;
+                        return [4 /*yield*/, this.assignProvider.getAssignment(this.courseId, this.moduleId)];
+                    case 1:
+                        // Get assignment data.
+                        _a.assign = _d.sent();
+                        this.title = this.assign.name || this.title;
+                        if (!sync) return [3 /*break*/, 5];
+                        _d.label = 2;
+                    case 2:
+                        _d.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, __WEBPACK_IMPORTED_MODULE_9__providers_assign_sync__["a" /* AddonModAssignSync */].instance.syncAssign(this.assign.id)];
+                    case 3:
+                        result = _d.sent();
+                        if (result && result.updated) {
+                            this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_9__providers_assign_sync__["b" /* AddonModAssignSyncProvider */].MANUAL_SYNCED, {
+                                assignId: this.assign.id,
+                                warnings: result.warnings,
+                                gradesBlocked: result.gradesBlocked,
+                                context: 'submission-list',
+                            }, this.sitesProvider.getCurrentSiteId());
+                        }
+                        return [3 /*break*/, 5];
+                    case 4:
+                        error_1 = _d.sent();
+                        return [3 /*break*/, 5];
+                    case 5:
+                        // Get assignment submissions.
+                        _b = this;
+                        return [4 /*yield*/, this.assignProvider.getSubmissions(this.assign.id, { cmId: this.assign.cmid })];
+                    case 6:
+                        // Get assignment submissions.
+                        _b.submissionsData = _d.sent();
+                        if (!this.submissionsData.canviewsubmissions) {
+                            // User shouldn't be able to reach here.
+                            throw new Error('Cannot view submissions.');
+                        }
+                        // Check if groupmode is enabled to avoid showing wrong numbers.
+                        _c = this;
+                        return [4 /*yield*/, this.groupsProvider.getActivityGroupInfo(this.assign.cmid, false)];
+                    case 7:
+                        // Check if groupmode is enabled to avoid showing wrong numbers.
+                        _c.groupInfo = _d.sent();
+                        return [4 /*yield*/, this.setGroup(this.groupsProvider.validateGroupId(this.groupId, this.groupInfo))];
+                    case 8:
+                        _d.sent();
+                        return [3 /*break*/, 10];
+                    case 9:
+                        error_2 = _d.sent();
+                        this.domUtils.showErrorModalDefault(error_2, 'Error getting assigment data.');
+                        return [3 /*break*/, 10];
+                    case 10: return [2 /*return*/];
+                }
             });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error getting assigment data.');
         });
     };
     /**
@@ -215,7 +306,8 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
         var promises = [
             this.assignHelper.getSubmissionsUserData(this.assign, this.submissionsData.submissions, this.groupId),
             // Get assignment grades only if workflow is not enabled to check grading date.
-            !this.assign.markingworkflow ? this.assignProvider.getAssignmentGrades(this.assign.id) : Promise.resolve(null),
+            !this.assign.markingworkflow ? this.assignProvider.getAssignmentGrades(this.assign.id, { cmId: this.assign.cmid }) :
+                Promise.resolve(null),
         ];
         return Promise.all(promises).then(function (_a) {
             var submissions = _a[0], grades = _a[1];
@@ -306,9 +398,10 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
     /**
      * Refresh all the data.
      *
+     * @param sync Whether to try to synchronize data.
      * @return Promise resolved when done.
      */
-    AddonModAssignSubmissionListPage.prototype.refreshAllData = function () {
+    AddonModAssignSubmissionListPage.prototype.refreshAllData = function (sync) {
         var _this = this;
         var promises = [];
         promises.push(this.assignProvider.invalidateAssignmentData(this.courseId));
@@ -319,7 +412,7 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
             promises.push(this.assignProvider.invalidateListParticipantsData(this.assign.id));
         }
         return Promise.all(promises).finally(function () {
-            return _this.fetchAssignment();
+            return _this.fetchAssignment(sync);
         });
     };
     /**
@@ -328,7 +421,7 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
      * @param refresher Refresher.
      */
     AddonModAssignSubmissionListPage.prototype.refreshList = function (refresher) {
-        this.refreshAllData().finally(function () {
+        this.refreshAllData(true).finally(function () {
             refresher.complete();
         });
     };
@@ -337,19 +430,20 @@ var AddonModAssignSubmissionListPage = /** @class */ (function () {
      */
     AddonModAssignSubmissionListPage.prototype.ngOnDestroy = function () {
         this.gradedObserver && this.gradedObserver.off();
+        this.syncObserver && this.syncObserver.off();
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__components_split_view_split_view__["a" /* CoreSplitViewComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_10__components_split_view_split_view__["a" /* CoreSplitViewComponent */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_11__components_split_view_split_view__["a" /* CoreSplitViewComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_11__components_split_view_split_view__["a" /* CoreSplitViewComponent */])
     ], AddonModAssignSubmissionListPage.prototype, "splitviewCtrl", void 0);
     AddonModAssignSubmissionListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-assign-submission-list',template:/*ion-inline-start:"/Users/lewiscarr/moodlemobile/src/addon/mod/assign/pages/submission-list/submission-list.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title" contextLevel="module" [contextInstanceId]="moduleId"  [courseId]="courseId"></core-format-text></ion-title>\n\n        <ion-buttons end></ion-buttons>\n    </ion-navbar>\n</ion-header>\n<core-split-view>\n    <ion-content>\n        <ion-refresher [enabled]="loaded" (ionRefresh)="refreshList($event)">\n            <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n        </ion-refresher>\n        <core-loading [hideUntil]="loaded">\n            <core-empty-box *ngIf="!submissions || submissions.length == 0" icon="paper" [message]="\'addon.mod_assign.submissionstatus_\' | translate">\n            </core-empty-box>\n\n            <ion-list>\n                <ion-item text-wrap *ngIf="(groupInfo.separateGroups || groupInfo.visibleGroups)">\n                    <ion-label id="addon-assign-groupslabel" *ngIf="groupInfo.separateGroups">{{ \'core.groupsseparate\' | translate }}</ion-label>\n                    <ion-label id="addon-assign-groupslabel" *ngIf="groupInfo.visibleGroups">{{ \'core.groupsvisible\' | translate }}</ion-label>\n                    <ion-select [(ngModel)]="groupId" (ionChange)="setGroup(groupId)" aria-labelledby="addon-assign-groupslabel" interface="action-sheet">\n                        <ion-option *ngFor="let groupOpt of groupInfo.groups" [value]="groupOpt.id">{{groupOpt.name}}</ion-option>\n                    </ion-select>\n                </ion-item>\n                <!-- List of submissions. -->\n                <ng-container *ngFor="let submission of submissions">\n                    <a ion-item text-wrap (click)="loadSubmission(submission)" [class.core-split-item-selected]="submission.submitid == selectedSubmissionId">\n                        <ion-avatar core-user-avatar [user]="submission" [linkProfile]="false" item-start></ion-avatar>\n                        <h2 *ngIf="submission.userfullname">{{submission.userfullname}}</h2>\n                        <h2 *ngIf="!submission.userfullname">{{ \'addon.mod_assign.hiddenuser\' | translate }}{{submission.blindid}}</h2>\n                        <p *ngIf="assign.teamsubmission">\n                            <span *ngIf="submission.groupname">{{submission.groupname}}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && submission.noGroups && !submission.blindid" class="text-danger">{{ \'addon.mod_assign.noteam\' | translate }}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && submission.manyGroups && !submission.blindid" class="text-danger">{{ \'addon.mod_assign.multipleteams\' | translate }}</span>\n                            <span *ngIf="!assign.preventsubmissionnotingroup && !submission.groupname">{{ \'addon.mod_assign.defaultteam\' | translate }}</span>\n                        </p>\n                        <ion-badge text-center text-wrap [color]="submission.statusColor" *ngIf="submission.statusTranslated">\n                            {{ submission.statusTranslated }}\n                        </ion-badge>\n                        <ion-badge text-center text-wrap [color]="submission.gradingColor" *ngIf="submission.gradingStatusTranslationId">\n                            {{ submission.gradingStatusTranslationId | translate }}\n                        </ion-badge>\n                    </a>\n                </ng-container>\n\n                <ion-item text-wrap class="core-warning-card" *ngIf="!haveAllParticipants" icon-start>\n                    <ion-icon name="warning"></ion-icon>\n                    {{ \'addon.mod_assign.notallparticipantsareshown\' | translate }}\n                </ion-item>\n            </ion-list>\n        </core-loading>\n    </ion-content>\n</core-split-view>\n'/*ion-inline-end:"/Users/lewiscarr/moodlemobile/src/addon/mod/assign/pages/submission-list/submission-list.html"*/,
+            selector: 'page-addon-mod-assign-submission-list',template:/*ion-inline-start:"/Users/lewiscarr/Documents/app/src/addon/mod/assign/pages/submission-list/submission-list.html"*/'<ion-header>\n    <ion-navbar core-back-button>\n        <ion-title><core-format-text [text]="title" contextLevel="module" [contextInstanceId]="moduleId"  [courseId]="courseId"></core-format-text></ion-title>\n\n        <ion-buttons end></ion-buttons>\n    </ion-navbar>\n</ion-header>\n<core-split-view>\n    <ion-content>\n        <ion-refresher [enabled]="loaded" (ionRefresh)="refreshList($event)">\n            <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n        </ion-refresher>\n        <core-loading [hideUntil]="loaded">\n            <core-empty-box *ngIf="!submissions || submissions.length == 0" icon="paper" [message]="\'addon.mod_assign.submissionstatus_\' | translate">\n            </core-empty-box>\n\n            <ion-list>\n                <ion-item text-wrap *ngIf="(groupInfo.separateGroups || groupInfo.visibleGroups)">\n                    <ion-label id="addon-assign-groupslabel" *ngIf="groupInfo.separateGroups">{{ \'core.groupsseparate\' | translate }}</ion-label>\n                    <ion-label id="addon-assign-groupslabel" *ngIf="groupInfo.visibleGroups">{{ \'core.groupsvisible\' | translate }}</ion-label>\n                    <ion-select [(ngModel)]="groupId" (ionChange)="setGroup(groupId)" aria-labelledby="addon-assign-groupslabel" interface="action-sheet">\n                        <ion-option *ngFor="let groupOpt of groupInfo.groups" [value]="groupOpt.id">{{groupOpt.name}}</ion-option>\n                    </ion-select>\n                </ion-item>\n                <!-- List of submissions. -->\n                <ng-container *ngFor="let submission of submissions">\n                    <a ion-item text-wrap (click)="loadSubmission(submission)" [class.core-split-item-selected]="submission.submitid == selectedSubmissionId">\n                        <ion-avatar core-user-avatar [user]="submission" [linkProfile]="false" item-start></ion-avatar>\n                        <h2 *ngIf="submission.userfullname">{{submission.userfullname}}</h2>\n                        <h2 *ngIf="!submission.userfullname">{{ \'addon.mod_assign.hiddenuser\' | translate }}{{submission.blindid}}</h2>\n                        <p *ngIf="assign.teamsubmission">\n                            <span *ngIf="submission.groupname">{{submission.groupname}}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && submission.noGroups && !submission.blindid" class="text-danger">{{ \'addon.mod_assign.noteam\' | translate }}</span>\n                            <span *ngIf="assign.preventsubmissionnotingroup && !submission.groupname && submission.manyGroups && !submission.blindid" class="text-danger">{{ \'addon.mod_assign.multipleteams\' | translate }}</span>\n                            <span *ngIf="!assign.preventsubmissionnotingroup && !submission.groupname">{{ \'addon.mod_assign.defaultteam\' | translate }}</span>\n                        </p>\n                        <ion-badge text-center text-wrap [color]="submission.statusColor" *ngIf="submission.statusTranslated">\n                            {{ submission.statusTranslated }}\n                        </ion-badge>\n                        <ion-badge text-center text-wrap [color]="submission.gradingColor" *ngIf="submission.gradingStatusTranslationId">\n                            {{ submission.gradingStatusTranslationId | translate }}\n                        </ion-badge>\n                    </a>\n                </ng-container>\n\n                <ion-item text-wrap class="core-warning-card" *ngIf="!haveAllParticipants" icon-start>\n                    <ion-icon name="warning"></ion-icon>\n                    {{ \'addon.mod_assign.notallparticipantsareshown\' | translate }}\n                </ion-item>\n            </ion-list>\n        </core-loading>\n    </ion-content>\n</core-split-view>\n'/*ion-inline-end:"/Users/lewiscarr/Documents/app/src/addon/mod/assign/pages/submission-list/submission-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_sites__["b" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_events__["b" /* CoreEventsProvider */],
             __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__["b" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
             __WEBPACK_IMPORTED_MODULE_7__providers_assign__["a" /* AddonModAssignProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_assign_offline__["a" /* AddonModAssignOfflineProvider */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_helper__["a" /* AddonModAssignHelperProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_groups__["a" /* CoreGroupsProvider */]])
+            __WEBPACK_IMPORTED_MODULE_10__providers_helper__["a" /* AddonModAssignHelperProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_groups__["a" /* CoreGroupsProvider */]])
     ], AddonModAssignSubmissionListPage);
     return AddonModAssignSubmissionListPage;
 }());
